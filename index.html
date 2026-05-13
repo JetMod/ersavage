@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ERSAVAGE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="header-utility">
+      <div class="container header-utility-inner">
+        <a href="#" class="header-city-picker" aria-label="Выбрать город">
+          <span class="header-utility-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-6-5.2-6-10a6 6 0 1112 0c0 4.8-6 10-6 10z"></path>
+              <circle cx="12" cy="11" r="2.25" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+            </svg>
+          </span>
+          <span class="header-city-label">Ваш город: <span class="header-city-name">Москва</span></span>
+        </a>
+        <nav class="header-utility-nav" aria-label="Сервисная навигация">
+          <a href="#about" class="header-utility-nav-link header-utility-nav-link--emphasis">О компании</a>
+          <a href="#" class="header-utility-nav-link">Услуги и акции</a>
+          <a href="#" class="header-utility-nav-link">Доставка и оплата</a>
+          <a href="#" class="header-utility-nav-link">Подарочные карты</a>
+          <a href="#" class="header-utility-nav-link">Блог</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container header-main-inner">
+        <div class="header-main-start">
+          <a class="header-brand" href="#" aria-label="ERSAVAGE — на главную">
+            <img
+              class="header-brand-logo"
+              src="img/logo.jpg"
+              alt="ERSAVAGE"
+            >
+          </a>
+          <div class="header-phone-block">
+            <a class="header-phone" href="tel:+78006002730">+7 800 600 27 30</a>
+            <p class="header-phone-hours">ежедневно с 10:00 до 20:00</p>
+          </div>
+        </div>
+
+        <div class="header-search-wrap">
+          <form class="header-search" role="search" action="#" method="get">
+            <span class="header-search-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="11" cy="11" r="6"></circle>
+                <path d="M16 16L21 21"></path>
+              </svg>
+            </span>
+            <label class="sr-only" for="headerSearchInput">Поиск по каталогу</label>
+            <input
+              id="headerSearchInput"
+              type="search"
+              name="q"
+              placeholder="Например, костюм"
+              autocomplete="off"
+            >
+          </form>
+        </div>
+
+        <div class="header-main-end">
+          <div class="header-actions">
+            <button type="button" class="header-icon-btn" aria-label="Избранное">
+              <span class="wishlist-badge" aria-hidden="true"></span>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </button>
+            <a class="header-cart-link" href="#" aria-label="Корзина">
+              <span class="header-cart-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M6 7h15l-1.5 9h-12L6 7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                  <path d="M6 7H4V5h2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                  <circle cx="10.5" cy="20" r="1.5" fill="currentColor"></circle>
+                  <circle cx="17.5" cy="20" r="1.5" fill="currentColor"></circle>
+                </svg>
+              </span>
+              <span class="cart-badge">3</span>
+            </a>
+          </div>
+          <a href="#" class="header-icon-link header-account-entry">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="8" r="3.25"></circle>
+              <path d="M6.5 20.5v-.5a5.5 5.5 0 0111 0v.5"></path>
+            </svg>
+            Личный кабинет
+          </a>
+          <a
+            class="header-cta-btn"
+            href="tel:+78006002730"
+          >
+            <svg class="header-cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+            <span class="header-cta-label">Оставить заявку</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-subnav" aria-label="Категории каталога">
+      <div class="header-subnav-bg" aria-hidden="true"></div>
+      <div class="container header-subnav-inner">
+        <a href="#new" class="header-catalog-btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 7h14M5 12h14M5 17h14"></path>
+          </svg>
+          Каталог
+        </a>
+        <nav class="subnav-links" aria-label="Направления">
+          <a href="#">Тройка</a>
+          <a href="#">Двойка</a>
+          <a href="#">Смокинги</a>
+          <a href="#">На свадьбу</a>
+          <a href="#">В офис</a>
+          <a href="#">Обувь</a>
+          <a href="#">Джинсы</a>
+          <a href="#">Рубашки</a>
+          <a href="#">Аксессуары</a>
+          <a href="#" class="subnav-link-deferred">Большие размеры</a>
+          <a href="#" class="subnav-link-deferred">Для высоких</a>
+          <a href="#">На выпускной</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle" data-hero>
+      <h1 id="heroTitle" class="sr-only">ERSAVAGE — мужские костюмы и одежда</h1>
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-main">
+            <div
+              class="hero-slides"
+              role="region"
+              aria-roledescription="карусель"
+              aria-label="Главные предложения"
+              tabindex="0"
+              data-hero-viewport
+            >
+              <article
+                class="hero-slide is-active"
+                data-foot-primary="5% с каждой покупки"
+                data-foot-secondary="На бонусную карту"
+                aria-hidden="false"
+              >
+                <div class="hero-slide-visual">
+                  <img
+                    src="img/XXXL.webp"
+                    alt="Коллекция ERSAVAGE — деловой стиль"
+                    width="1600"
+                    height="1200"
+                    fetchpriority="high"
+                    decoding="async"
+                  >
+                </div>
+                <div class="hero-slide-body">
+                  <p class="hero-slide-kicker">Собственное производство</p>
+                  <p class="hero-slide-headline">Накапливайте 5% с каждой покупки</p>
+                  <a class="hero-slide-cta" href="#">Записаться на примерку</a>
+                </div>
+              </article>
+              <article
+                class="hero-slide"
+                data-foot-primary="Новые модели каждую неделю"
+                data-foot-secondary="Весна — лето 2026"
+                aria-hidden="true"
+              >
+                <div class="hero-slide-visual">
+                  <img
+                    src="img/XXXL%20(4).webp"
+                    alt="Костюмы и пиджаки ERSAVAGE"
+                    width="1600"
+                    height="1200"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </div>
+                <div class="hero-slide-body">
+                  <p class="hero-slide-kicker">Коллекция</p>
+                  <p class="hero-slide-headline">Костюмы для делового и праздничного дресс-кода</p>
+                  <a class="hero-slide-cta" href="#new">Смотреть новинки</a>
+                </div>
+              </article>
+              <article
+                class="hero-slide"
+                data-foot-primary="Идеальный подарок"
+                data-foot-secondary="Электронная доставка на e-mail"
+                aria-hidden="true"
+              >
+                <div class="hero-slide-visual">
+                  <img
+                    src="img/XXXL%20(8).webp"
+                    alt="Новая коллекция ERSAVAGE"
+                    width="1600"
+                    height="1200"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </div>
+                <div class="hero-slide-body">
+                  <p class="hero-slide-kicker">Сервис</p>
+                  <p class="hero-slide-headline">Подарочные сертификаты на любой номинал</p>
+                  <a class="hero-slide-cta" href="#">Выбрать сертификат</a>
+                </div>
+              </article>
+            </div>
+            <div class="hero-toolbar">
+              <div class="hero-toolbar-text">
+                <p class="hero-toolbar-line1" data-hero-foot-primary>5% с каждой покупки</p>
+                <p class="hero-toolbar-line2" data-hero-foot-secondary>На бонусную карту</p>
+              </div>
+              <div class="hero-toolbar-nav">
+                <button type="button" class="hero-nav-btn" data-hero-prev aria-label="Предыдущий слайд">
+                  <span aria-hidden="true">←</span>
+                </button>
+                <span class="hero-nav-counter" data-hero-counter aria-live="polite">1 / 3</span>
+                <button type="button" class="hero-nav-btn" data-hero-next aria-label="Следующий слайд">
+                  <span aria-hidden="true">→</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-aside" aria-label="Подборки">
+            <a href="#new" class="hero-tile">
+              <div class="hero-tile-visual">
+                <img
+                  src="img/XXXL%20(11).webp"
+                  alt="Новая коллекция костюмов ERSAVAGE"
+                  width="1200"
+                  height="1500"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+              <div class="hero-tile-main">
+                <p class="hero-tile-label">Костюмы</p>
+                <p class="hero-tile-sub">новая коллекция</p>
+              </div>
+              <div class="hero-tile-foot">
+                <p class="hero-tile-foot-strong">Новые линейки кроя и тканей</p>
+                <p class="hero-tile-foot-muted">Весна — лето 2026</p>
+              </div>
+            </a>
+            <a href="#" class="hero-tile hero-tile--dark">
+              <div class="hero-tile-visual hero-tile-visual--card" aria-hidden="true">
+                <div class="hero-gift-card">
+                  <span class="hero-gift-card-brand">ERSAVAGE</span>
+                  <span class="hero-gift-card-line"></span>
+                  <span class="hero-gift-card-no">**** 1026</span>
+                </div>
+              </div>
+              <div class="hero-tile-main hero-tile-main--on-dark">
+                <p class="hero-tile-label">Сертификаты</p>
+                <p class="hero-tile-sub">идеальный подарок</p>
+              </div>
+              <div class="hero-tile-foot hero-tile-foot--on-dark">
+                <p class="hero-tile-foot-strong">Номинал на выбор</p>
+                <p class="hero-tile-foot-muted">Доставим на e-mail за минуту</p>
+              </div>
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Бегущая строка">
+      <div class="ticker-track">
+        <span class="ticker-item">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО •</span>
+        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО •</span>
+      </div>
+    </section>
+
+    <section class="section container reveal" id="new">
+      <div class="section-head">
+        <h2>Новые поступления</h2>
+        <a class="link-gold" href="#">Весь каталог</a>
+      </div>
+      <div class="products-grid" aria-label="Новые товары">
+        <article class="product-card">
+          <div class="product-image product-1" aria-hidden="true"></div>
+          <span class="product-tag">Новинка</span>
+          <h3>Классический костюм</h3>
+          <p class="product-price">27 900 ₽</p>
+          <button class="btn btn-fill">В корзину</button>
+        </article>
+        <article class="product-card">
+          <div class="product-image product-2" aria-hidden="true"></div>
+          <span class="product-tag">Limited</span>
+          <h3>Льняная рубашка</h3>
+          <p class="product-price">9 200 ₽</p>
+          <button class="btn btn-fill">В корзину</button>
+        </article>
+        <article class="product-card">
+          <div class="product-image product-3" aria-hidden="true"></div>
+          <span class="product-tag">Новинка</span>
+          <h3>Базовая футболка</h3>
+          <p class="product-price">3 490 ₽</p>
+          <button class="btn btn-fill">В корзину</button>
+        </article>
+        <article class="product-card">
+          <div class="product-image product-4" aria-hidden="true"></div>
+          <span class="product-tag">Бестселлер</span>
+          <h3>Джинсы-бананы</h3>
+          <p class="product-price">11 800 ₽</p>
+          <button class="btn btn-fill">В корзину</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container reveal" id="categories">
+      <h2>Категории</h2>
+      <div class="categories-grid">
+        <a href="#" class="category-card" aria-label="Категория Костюмы">
+          <img
+            src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=1200&q=80"
+            alt="Костюмы ERSAVAGE"
+            loading="lazy"
+          >
+          <span class="category-title">Костюмы</span>
+        </a>
+        <a href="#" class="category-card" aria-label="Категория Повседневное">
+          <img
+            src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80"
+            alt="Повседневная одежда ERSAVAGE"
+            loading="lazy"
+          >
+          <span class="category-title">Повседневное</span>
+        </a>
+        <a href="#" class="category-card" aria-label="Категория Спортивные">
+          <img
+            src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80"
+            alt="Спортивные образы ERSAVAGE"
+            loading="lazy"
+          >
+          <span class="category-title">Спортивные</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="promo reveal" aria-labelledby="promoTitle">
+      <div class="container promo-inner">
+        <p class="promo-eyebrow">Акция ERSAVAGE</p>
+        <h2 id="promoTitle">Большой розыгрыш призов для покупателей</h2>
+        <p class="promo-lead">Совершите покупку от 15 000 ₽, заполните анкету на кассе и участвуйте в розыгрыше до 31 мая.</p>
+        <ul class="promo-prizes" aria-label="Список призов">
+          <li>iPhone 17</li>
+          <li>PlayStation 5</li>
+          <li>AirPods Pro</li>
+          <li>3 костюма ERSAVAGE</li>
+          <li>3 сертификата по 10 000 ₽</li>
+        </ul>
+        <a href="#" class="btn btn-fill promo-cta">Узнать подробнее</a>
+      </div>
+    </section>
+
+    <section class="section container about reveal" id="about" aria-labelledby="aboutTitle">
+      <div class="about-content">
+        <p class="eyebrow about-eyebrow">О бренде</p>
+        <h2 id="aboutTitle">Создаем стиль в Крыму, который остается актуальным годами</h2>
+        <p>
+          ERSAVAGE начался как семейное ателье и вырос в бренд, которому доверяют поколения.
+          Наша команда сочетает классический крой и современные решения, чтобы вещи выглядели
+          статусно и носились долго.
+        </p>
+        <p>
+          Собственное производство в Крыму позволяет нам контролировать каждую деталь: от отбора
+          ткани до финальной посадки. Поэтому каждая коллекция сохраняет характер бренда и
+          неизменно высокий уровень качества.
+        </p>
+        <a class="btn btn-outline" href="#">Читать больше</a>
+      </div>
+      <div class="about-image-wrap">
+        <img
+          class="about-image"
+          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80"
+          alt="Команда ERSAVAGE на собственном производстве в Крыму"
+          loading="lazy"
+        >
+      </div>
+    </section>
+
+    <section class="section container reveal" id="stores" aria-labelledby="storesTitle">
+      <svg class="stores-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <symbol id="icon-store-pin" viewBox="0 0 24 24">
+          <path
+            d="M12 21c-3.1-2.85-6-6.2-6-9.9a6 6 0 1112 0c0 3.7-2.9 7.05-6 9.9z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <circle cx="12" cy="10.5" r="2.25" fill="none" stroke="currentColor" stroke-width="1.75"></circle>
+        </symbol>
+      </svg>
+      <h2 id="storesTitle">Наши магазины</h2>
+      <p class="stores-intro">Четыре точки в Симферополе и магазины в Евпатории, Севастополе и Старом Крыму.</p>
+      <div class="stores-grid">
+        <article class="store-city-card">
+          <h3>Симферополь</h3>
+          <ul class="store-list">
+            <li class="store-row">
+              <span class="store-icon" aria-hidden="true">
+                <svg width="20" height="20" focusable="false"><use href="#icon-store-pin"></use></svg>
+              </span>
+              <div class="store-row-text">
+                <p class="store-address">Проспект Победы, 438А</p>
+                <p class="store-hours">10:00–21:00</p>
+              </div>
+            </li>
+            <li class="store-row">
+              <span class="store-icon" aria-hidden="true">
+                <svg width="20" height="20" focusable="false"><use href="#icon-store-pin"></use></svg>
+              </span>
+              <div class="store-row-text">
+                <p class="store-address">Рынок «Светофор», 1 ряд, бутик 99</p>
+                <p class="store-hours">10:00–18:00</p>
+              </div>
+            </li>
+            <li class="store-row">
+              <span class="store-icon" aria-hidden="true">
+                <svg width="20" height="20" focusable="false"><use href="#icon-store-pin"></use></svg>
+              </span>
+              <div class="store-row-text">
+                <p class="store-address">ТРК «Меганом», 2 этаж</p>
+                <p class="store-hours">10:00–21:00</p>
+              </div>
+            </li>
+            <li class="store-row">
+              <span class="store-icon" aria-hidden="true">
+                <svg width="20" height="20" focusable="false"><use href="#icon-store-pin"></use></svg>
+              </span>
+              <div class="store-row-text">
+                <p class="store-address">ТРЦ «Южная Галерея»</p>
+                <p class="store-hours">10:00–21:00</p>
+              </div>
+            </li>
+          </ul>
+        </article>
+        <article class="store-city-card">
+          <h3>Евпатория</h3>
+          <ul class="store-list">
+            <li class="store-row">
+              <span class="store-icon" aria-hidden="true">
+                <svg width="20" height="20" focusable="false"><use href="#icon-store-pin"></use></svg>
+              </span>
+              <div class="store-row-text">
+                <p class="store-address">ТЦ «Т-центр», 2 этаж</p>
+                <p class="store-hours">10:00–20:00</p>
+              </div>
+            </li>
+          </ul>
+        </article>
+        <article class="store-city-card">
+          <h3>Севастополь</h3>
+          <ul class="store-list">
+            <li class="store-row">
+              <span class="store-icon" aria-hidden="true">
+                <svg width="20" height="20" focusable="false"><use href="#icon-store-pin"></use></svg>
+              </span>
+              <div class="store-row-text">
+                <p class="store-address">ТЦ «Муссон», правое крыло</p>
+                <p class="store-hours">10:00–21:00</p>
+              </div>
+            </li>
+          </ul>
+        </article>
+        <article class="store-city-card">
+          <h3>Старый Крым</h3>
+          <ul class="store-list">
+            <li class="store-row">
+              <span class="store-icon" aria-hidden="true">
+                <svg width="20" height="20" focusable="false"><use href="#icon-store-pin"></use></svg>
+              </span>
+              <div class="store-row-text">
+                <p class="store-address">ул. Чапаева, 2</p>
+                <p class="store-hours">10:00–21:00</p>
+              </div>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reviews-section reveal" id="reviews" aria-labelledby="reviewsTitle">
+      <div class="container reviews-section-head">
+        <h2 id="reviewsTitle">Отзывы</h2>
+        <p class="reviews-section-lead">Что говорят о ERSAVAGE в магазинах и онлайн</p>
+      </div>
+      <div
+        class="reviews-slider"
+        tabindex="0"
+        role="region"
+        aria-label="Отзывы клиентов. Прокрутите горизонтально, чтобы увидеть больше."
+      >
+        <article class="review-card">
+          <p class="sr-only">Оценка: 5 из 5</p>
+          <div class="review-stars" aria-hidden="true">★★★★★</div>
+          <blockquote>
+            <p>Отличная посадка костюма и очень приятная ткань. Носится без малейшего дискомфорта.</p>
+          </blockquote>
+          <footer class="review-meta"><cite>Илья</cite><span class="review-tag">Симферополь</span></footer>
+        </article>
+        <article class="review-card">
+          <p class="sr-only">Оценка: 5 из 5</p>
+          <div class="review-stars" aria-hidden="true">★★★★★</div>
+          <blockquote>
+            <p>Быстро помогли подобрать образ и аксессуары. Сервис на уровне люксовых бутиков.</p>
+          </blockquote>
+          <footer class="review-meta"><cite>Анна</cite><span class="review-tag">Севастополь</span></footer>
+        </article>
+        <article class="review-card">
+          <p class="sr-only">Оценка: 5 из 5</p>
+          <div class="review-stars" aria-hidden="true">★★★★★</div>
+          <blockquote>
+            <p>Покупаю здесь уже не первый сезон — качество стабильно высокое, вещи не «расползаются» после стирки.</p>
+          </blockquote>
+          <footer class="review-meta"><cite>Роман</cite><span class="review-tag">Евпатория</span></footer>
+        </article>
+        <article class="review-card">
+          <p class="sr-only">Оценка: 5 из 5</p>
+          <div class="review-stars" aria-hidden="true">★★★★★</div>
+          <blockquote>
+            <p>Льняная рубашка села идеально. Отдельное спасибо консультанту за честные рекомендации по размеру.</p>
+          </blockquote>
+          <footer class="review-meta"><cite>Дмитрий</cite><span class="review-tag">Старый Крым</span></footer>
+        </article>
+        <article class="review-card">
+          <p class="sr-only">Оценка: 5 из 5</p>
+          <div class="review-stars" aria-hidden="true">★★★★★</div>
+          <blockquote>
+            <p>Джинсы и базовые футболки стали основой гардероба. Цена адекватная за такой крой и материалы.</p>
+          </blockquote>
+          <footer class="review-meta"><cite>Екатерина</cite><span class="review-tag">Симферополь</span></footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="subscribe reveal" id="newsletter" aria-labelledby="newsletterTitle">
+      <div class="container subscribe-inner">
+        <h2 id="newsletterTitle" class="subscribe-title">Подписка на рассылку</h2>
+        <form class="subscribe-form" aria-label="Подписка на рассылку ERSAVAGE">
+          <label class="sr-only" for="newsletter-email">Email</label>
+          <input
+            id="newsletter-email"
+            name="email"
+            type="email"
+            inputmode="email"
+            autocomplete="email"
+            placeholder="Ваш email"
+            required
+          >
+          <button class="btn btn-fill subscribe-submit" type="submit">Подписаться</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a class="footer-logo" href="#" aria-label="ERSAVAGE — на главную">
+          <img src="img/logo.svg" alt="ERSAVAGE">
+        </a>
+        <p class="footer-tagline">Одеваем поколения уже очень давно</p>
+      </div>
+      <nav class="footer-col" aria-labelledby="footer-catalog">
+        <h3 id="footer-catalog">Каталог</h3>
+        <ul>
+          <li><a href="#categories">Костюмы</a></li>
+          <li><a href="#categories">Повседневное</a></li>
+          <li><a href="#categories">Спортивные</a></li>
+          <li><a href="#new">Новинки</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-labelledby="footer-info">
+        <h3 id="footer-info">Информация</h3>
+        <ul>
+          <li><a href="#about">О бренде</a></li>
+          <li><a href="#">Доставка и оплата</a></li>
+          <li><a href="#">Контакты</a></li>
+          <li><a href="#newsletter">Рассылка</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-labelledby="footer-stores">
+        <h3 id="footer-stores">Магазины</h3>
+        <ul>
+          <li><a href="#stores">Симферополь</a></li>
+          <li><a href="#stores">Евпатория</a></li>
+          <li><a href="#stores">Севастополь</a></li>
+          <li><a href="#stores">Старый Крым</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-labelledby="footer-social">
+        <h3 id="footer-social">Соцсети</h3>
+        <ul>
+          <li><a href="#" rel="noopener noreferrer">Telegram</a></li>
+          <li><a href="#" rel="noopener noreferrer">VK</a></li>
+          <li><a href="#" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">© 2026 ERSAVAGE</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
