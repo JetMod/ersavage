@@ -9,10 +9,13 @@
   const footPrimary = root.querySelector("[data-hero-foot-primary]");
   const footSecondary = root.querySelector("[data-hero-foot-secondary]");
   const counter = root.querySelector("[data-hero-counter]");
+  const dots = [...root.querySelectorAll("[data-hero-dot]")];
   const total = slides.length;
   if (!total) return;
 
   let index = 0;
+
+  const pad2 = (n) => String(n).padStart(2, "0");
 
   const apply = () => {
     slides.forEach((slide, j) => {
@@ -23,7 +26,12 @@
     const activeSlide = slides[index];
     if (footPrimary) footPrimary.textContent = activeSlide.dataset.footPrimary || "";
     if (footSecondary) footSecondary.textContent = activeSlide.dataset.footSecondary || "";
-    if (counter) counter.textContent = `${index + 1} / ${total}`;
+    if (counter) counter.textContent = `${pad2(index + 1)} — ${pad2(total)}`;
+    dots.forEach((dot, j) => {
+      const on = j === index;
+      dot.classList.toggle("is-active", on);
+      dot.setAttribute("aria-selected", on ? "true" : "false");
+    });
   };
 
   const go = (delta) => {
@@ -33,6 +41,16 @@
 
   prevBtn?.addEventListener("click", () => go(-1));
   nextBtn?.addEventListener("click", () => go(1));
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const j = Number(dot.dataset.heroDot);
+      if (Number.isFinite(j) && j >= 0 && j < total) {
+        index = j;
+        apply();
+      }
+    });
+  });
 
   viewport?.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft") {
@@ -47,7 +65,6 @@
   apply();
 })();
 
-const header = document.getElementById("siteHeader");
 const revealElements = document.querySelectorAll(".reveal");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -82,19 +99,6 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
     window.setTimeout(finish, 520);
   });
 })();
-
-if (header) {
-  const setHeaderState = () => {
-    if (window.scrollY > 20) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  };
-
-  setHeaderState();
-  window.addEventListener("scroll", setHeaderState, { passive: true });
-}
 
 if (!prefersReducedMotion) {
   const revealObserver = new IntersectionObserver(

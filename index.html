@@ -26,7 +26,7 @@
           <a href="#about" class="header-utility-nav-link header-utility-nav-link--emphasis">О компании</a>
           <a href="#" class="header-utility-nav-link">Услуги и акции</a>
           <a href="#" class="header-utility-nav-link">Доставка и оплата</a>
-          <a href="#" class="header-utility-nav-link">Подарочные карты</a>
+          <!-- <a href="#" class="header-utility-nav-link">Подарочные карты</a> -->
           <a href="#" class="header-utility-nav-link">Блог</a>
         </nav>
       </div>
@@ -153,6 +153,7 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-main">
+            <div class="hero-main-card">
             <div
               class="hero-slides"
               role="region"
@@ -178,8 +179,6 @@
                   >
                 </div>
                 <div class="hero-slide-body">
-                  <p class="hero-slide-kicker">Собственное производство</p>
-                  <p class="hero-slide-headline">Накапливайте 5% с каждой покупки</p>
                   <a class="hero-slide-cta" href="#">Записаться на примерку</a>
                 </div>
               </article>
@@ -200,8 +199,6 @@
                   >
                 </div>
                 <div class="hero-slide-body">
-                  <p class="hero-slide-kicker">Коллекция</p>
-                  <p class="hero-slide-headline">Костюмы для делового и праздничного дресс-кода</p>
                   <a class="hero-slide-cta" href="#new">Смотреть новинки</a>
                 </div>
               </article>
@@ -222,8 +219,6 @@
                   >
                 </div>
                 <div class="hero-slide-body">
-                  <p class="hero-slide-kicker">Сервис</p>
-                  <p class="hero-slide-headline">Подарочные сертификаты на любой номинал</p>
                   <a class="hero-slide-cta" href="#">Выбрать сертификат</a>
                 </div>
               </article>
@@ -233,15 +228,27 @@
                 <p class="hero-toolbar-line1" data-hero-foot-primary>5% с каждой покупки</p>
                 <p class="hero-toolbar-line2" data-hero-foot-secondary>На бонусную карту</p>
               </div>
-              <div class="hero-toolbar-nav">
-                <button type="button" class="hero-nav-btn" data-hero-prev aria-label="Предыдущий слайд">
-                  <span aria-hidden="true">←</span>
-                </button>
-                <span class="hero-nav-counter" data-hero-counter aria-live="polite">1 / 3</span>
-                <button type="button" class="hero-nav-btn" data-hero-next aria-label="Следующий слайд">
-                  <span aria-hidden="true">→</span>
-                </button>
+              <div class="hero-toolbar-controls">
+                <div class="hero-dots" role="tablist" aria-label="Выбор слайда">
+                  <button type="button" class="hero-dot is-active" data-hero-dot="0" role="tab" aria-selected="true" aria-label="Слайд 1"></button>
+                  <button type="button" class="hero-dot" data-hero-dot="1" role="tab" aria-selected="false" aria-label="Слайд 2"></button>
+                  <button type="button" class="hero-dot" data-hero-dot="2" role="tab" aria-selected="false" aria-label="Слайд 3"></button>
+                </div>
+                <div class="hero-toolbar-nav">
+                  <button type="button" class="hero-nav-btn" data-hero-prev aria-label="Предыдущий слайд">
+                    <svg class="hero-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" d="M14 6l-6 6 6 6"></path>
+                    </svg>
+                  </button>
+                  <span class="hero-nav-counter" data-hero-counter aria-live="polite">01 — 03</span>
+                  <button type="button" class="hero-nav-btn" data-hero-next aria-label="Следующий слайд">
+                    <svg class="hero-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" d="M10 6l6 6-6 6"></path>
+                    </svg>
+                  </button>
+                </div>
               </div>
+            </div>
             </div>
           </div>
 
@@ -259,7 +266,7 @@
               </div>
               <div class="hero-tile-main">
                 <p class="hero-tile-label">Костюмы</p>
-                <p class="hero-tile-sub">новая коллекция</p>
+                <p class="hero-tile-sub">Крой и ткани сезона</p>
               </div>
               <div class="hero-tile-foot">
                 <p class="hero-tile-foot-strong">Новые линейки кроя и тканей</p>
@@ -274,13 +281,10 @@
                   <span class="hero-gift-card-no">**** 1026</span>
                 </div>
               </div>
-              <div class="hero-tile-main hero-tile-main--on-dark">
-                <p class="hero-tile-label">Сертификаты</p>
-                <p class="hero-tile-sub">идеальный подарок</p>
-              </div>
-              <div class="hero-tile-foot hero-tile-foot--on-dark">
-                <p class="hero-tile-foot-strong">Номинал на выбор</p>
-                <p class="hero-tile-foot-muted">Доставим на e-mail за минуту</p>
+              <div class="hero-tile-cert-copy">
+                <p class="hero-cert-title">Сертификаты</p>
+                <p class="hero-cert-lead">идеальный подарок</p>
+               
               </div>
             </a>
           </aside>
@@ -290,8 +294,14 @@
 
     <section class="ticker" aria-label="Бегущая строка">
       <div class="ticker-track">
-        <span class="ticker-item">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО •</span>
-        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО •</span>
+        <span class="ticker-item">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
+        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
+        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
+        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
+        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
+        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
+        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
+        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
       </div>
     </section>
 
