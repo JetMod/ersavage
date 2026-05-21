@@ -10,24 +10,38 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Перейти к содержимому</a>
   <header class="site-header" id="siteHeader">
     <div class="header-utility">
       <div class="container header-utility-inner">
-        <a href="#" class="header-city-picker" aria-label="Выбрать город">
-          <span class="header-utility-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-6-5.2-6-10a6 6 0 1112 0c0 4.8-6 10-6 10z"></path>
-              <circle cx="12" cy="11" r="2.25" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
-            </svg>
-          </span>
-          <span class="header-city-label">Ваш город: <span class="header-city-name">Москва</span></span>
-        </a>
+        <div class="header-city-picker-wrap" id="cityPickerWrap">
+          <button type="button" class="header-city-picker" id="cityPickerBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Выбрать город">
+            <span class="header-utility-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-6-5.2-6-10a6 6 0 1112 0c0 4.8-6 10-6 10z"></path>
+                <circle cx="12" cy="11" r="2.25" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+              </svg>
+            </span>
+            <span class="header-city-label">Ваш город: <span class="header-city-name" id="cityPickerName">Симферополь</span></span>
+            <span class="header-city-chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="12" height="12" focusable="false">
+                <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"></path>
+              </svg>
+            </span>
+          </button>
+          <ul class="header-city-dropdown" id="cityPickerDropdown" role="listbox" aria-label="Выберите город">
+            <li role="option" aria-selected="true"  data-city="Симферополь">Симферополь</li>
+            <li role="option" aria-selected="false" data-city="Евпатория">Евпатория</li>
+            <li role="option" aria-selected="false" data-city="Севастополь">Севастополь</li>
+            <li role="option" aria-selected="false" data-city="Старый Крым">Старый Крым</li>
+          </ul>
+        </div>
         <nav class="header-utility-nav" aria-label="Сервисная навигация">
-          <a href="#about" class="header-utility-nav-link header-utility-nav-link--emphasis">О компании</a>
+          <a href="#about" class="header-utility-nav-link">О компании</a>
           <a href="#" class="header-utility-nav-link">Услуги и акции</a>
           <a href="#" class="header-utility-nav-link">Доставка и оплата</a>
           <!-- <a href="#" class="header-utility-nav-link">Подарочные карты</a> -->
-          <a href="#" class="header-utility-nav-link">Блог</a>
+          <a href="#blog" class="header-utility-nav-link">Блог</a>
         </nav>
       </div>
     </div>
@@ -38,12 +52,14 @@
           <a class="header-brand" href="#" aria-label="ERSAVAGE — на главную">
             <img
               class="header-brand-logo"
-              src="img/logo.jpg"
+              src="img/logo.svg"
               alt="ERSAVAGE"
+              width="34"
+              height="34"
             >
           </a>
           <div class="header-phone-block">
-            <a class="header-phone" href="tel:+78006002730">+7 800 600 27 30</a>
+            <a class="header-phone" href="tel:+79783111101">+7 (978) 311-11-01</a>
             <p class="header-phone-hours">ежедневно с 10:00 до 20:00</p>
           </div>
         </div>
@@ -69,7 +85,7 @@
 
         <div class="header-main-end">
           <div class="header-actions">
-            <button type="button" class="header-icon-btn" aria-label="Избранное">
+            <button type="button" class="header-icon-btn header-wishlist-btn" aria-label="Избранное">
               <span class="wishlist-badge" aria-hidden="true"></span>
               <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path
@@ -81,7 +97,7 @@
                 ></path>
               </svg>
             </button>
-            <a class="header-cart-link" href="#" aria-label="Корзина">
+            <a class="header-cart-link" href="#" aria-label="Корзина, 3 товара">
               <span class="header-cart-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" focusable="false">
                   <path d="M6 7h15l-1.5 9h-12L6 7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
@@ -92,30 +108,29 @@
               </span>
               <span class="cart-badge">3</span>
             </a>
+            <a href="#" class="header-icon-link header-account-entry">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="8" r="3.25"></circle>
+                <path d="M6.5 20.5v-.5a5.5 5.5 0 0111 0v.5"></path>
+              </svg>
+              Личный кабинет
+            </a>
+            <button
+              type="button"
+              class="header-icon-btn header-menu-btn"
+              data-header-menu
+              aria-expanded="false"
+              aria-controls="headerMobileDrawer"
+              aria-label="Открыть меню"
+            >
+              <svg class="header-menu-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M5 7h14M5 12h14M5 17h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+              </svg>
+              <svg class="header-menu-close-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+              </svg>
+            </button>
           </div>
-          <a href="#" class="header-icon-link header-account-entry">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <circle cx="12" cy="8" r="3.25"></circle>
-              <path d="M6.5 20.5v-.5a5.5 5.5 0 0111 0v.5"></path>
-            </svg>
-            Личный кабинет
-          </a>
-          <a
-            class="header-cta-btn"
-            href="tel:+78006002730"
-          >
-            <svg class="header-cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path
-                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-            </svg>
-            <span class="header-cta-label">Оставить заявку</span>
-          </a>
         </div>
       </div>
     </div>
@@ -133,21 +148,66 @@
           <a href="#">Тройка</a>
           <a href="#">Двойка</a>
           <a href="#">Смокинги</a>
-          <a href="#">На свадьбу</a>
-          <a href="#">В офис</a>
           <a href="#">Обувь</a>
           <a href="#">Джинсы</a>
           <a href="#">Рубашки</a>
           <a href="#">Аксессуары</a>
-          <a href="#" class="subnav-link-deferred">Большие размеры</a>
-          <a href="#" class="subnav-link-deferred">Для высоких</a>
-          <a href="#">На выпускной</a>
         </nav>
+      </div>
+    </div>
+
+    <div
+      class="header-mobile-drawer"
+      id="headerMobileDrawer"
+      aria-hidden="true"
+      aria-label="Навигация по сайту"
+    >
+      <button type="button" class="header-mobile-drawer-backdrop" data-header-menu-close aria-label="Закрыть меню"></button>
+      <div class="header-mobile-drawer-panel" role="dialog" aria-modal="true" aria-label="Меню">
+        <div class="header-mobile-drawer-head">
+          <p class="header-mobile-drawer-title">Меню</p>
+          <button type="button" class="header-mobile-drawer-close" data-header-menu-close aria-label="Закрыть меню">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </svg>
+          </button>
+        </div>
+
+        <a href="#new" class="header-mobile-catalog-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 7h14M5 12h14M5 17h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+          </svg>
+          Каталог
+        </a>
+
+        <nav class="header-mobile-nav" aria-label="Категории">
+          <a href="#">Тройка</a>
+          <a href="#">Двойка</a>
+          <a href="#">Смокинги</a>
+          <a href="#">Обувь</a>
+          <a href="#">Джинсы</a>
+          <a href="#">Рубашки</a>
+          <a href="#">Аксессуары</a>
+        </nav>
+
+        <div class="header-mobile-divider" aria-hidden="true"></div>
+
+        <nav class="header-mobile-nav header-mobile-nav--utility" aria-label="Сервисная навигация">
+          <a href="#about">О компании</a>
+          <a href="#">Услуги и акции</a>
+          <a href="#">Доставка и оплата</a>
+          <a href="#">Блог</a>
+        </nav>
+
+        <div class="header-mobile-footer">
+          <a class="header-mobile-phone" href="tel:+79783111101">+7 (978) 311-11-01</a>
+          <p class="header-mobile-phone-hours">ежедневно с 10:00 до 20:00</p>
+        </div>
       </div>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero" aria-labelledby="heroTitle" data-hero>
       <h1 id="heroTitle" class="sr-only">ERSAVAGE — мужские костюмы и одежда</h1>
       <div class="container">
@@ -229,10 +289,15 @@
                 <p class="hero-toolbar-line2" data-hero-foot-secondary>На бонусную карту</p>
               </div>
               <div class="hero-toolbar-controls">
-                <div class="hero-dots" role="tablist" aria-label="Выбор слайда">
-                  <button type="button" class="hero-dot is-active" data-hero-dot="0" role="tab" aria-selected="true" aria-label="Слайд 1"></button>
-                  <button type="button" class="hero-dot" data-hero-dot="1" role="tab" aria-selected="false" aria-label="Слайд 2"></button>
-                  <button type="button" class="hero-dot" data-hero-dot="2" role="tab" aria-selected="false" aria-label="Слайд 3"></button>
+                <div class="hero-dots-group">
+                  <div class="hero-dots" role="tablist" aria-label="Выбор слайда">
+                    <button type="button" class="hero-dot is-active" data-hero-dot="0" role="tab" aria-selected="true" aria-label="Слайд 1"></button>
+                    <button type="button" class="hero-dot" data-hero-dot="1" role="tab" aria-selected="false" aria-label="Слайд 2"></button>
+                    <button type="button" class="hero-dot" data-hero-dot="2" role="tab" aria-selected="false" aria-label="Слайд 3"></button>
+                  </div>
+                  <div class="hero-autoplay-progress" data-hero-progress aria-hidden="true">
+                    <span class="hero-autoplay-progress-fill" data-hero-progress-fill></span>
+                  </div>
                 </div>
                 <div class="hero-toolbar-nav">
                   <button type="button" class="hero-nav-btn" data-hero-prev aria-label="Предыдущий слайд">
@@ -263,14 +328,19 @@
                   loading="lazy"
                   decoding="async"
                 >
-              </div>
-              <div class="hero-tile-main">
-                <p class="hero-tile-label">Костюмы</p>
-                <p class="hero-tile-sub">Крой и ткани сезона</p>
+                <div class="hero-tile-main">
+                  <p class="hero-tile-label">Костюмы</p>
+                  <p class="hero-tile-sub">Крой и ткани сезона</p>
+                </div>
               </div>
               <div class="hero-tile-foot">
-                <p class="hero-tile-foot-strong">Новые линейки кроя и тканей</p>
-                <p class="hero-tile-foot-muted">Весна — лето 2026</p>
+                <div class="hero-tile-foot-text">
+                  <p class="hero-tile-foot-strong">Новые линейки кроя и тканей</p>
+                  <p class="hero-tile-foot-muted">Весна — лето 2026</p>
+                </div>
+                <span class="hero-tile-foot-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
               </div>
             </a>
             <a href="#" class="hero-tile hero-tile--dark">
@@ -282,9 +352,13 @@
                 </div>
               </div>
               <div class="hero-tile-cert-copy">
-                <p class="hero-cert-title">Сертификаты</p>
-                <p class="hero-cert-lead">идеальный подарок</p>
-               
+                <div class="hero-cert-text">
+                  <p class="hero-cert-title">Сертификаты</p>
+                  <p class="hero-cert-lead">идеальный подарок</p>
+                </div>
+                <span class="hero-cert-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
               </div>
             </a>
           </aside>
@@ -295,96 +369,551 @@
     <section class="ticker" aria-label="Бегущая строка">
       <div class="ticker-track">
         <span class="ticker-item">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
-        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
-        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
-        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
-        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
-        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
-        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
-        <span class="ticker-item" aria-hidden="true">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
+
       </div>
     </section>
 
-    <section class="section container reveal" id="new">
-      <div class="section-head">
-        <h2>Новые поступления</h2>
-        <a class="link-gold" href="#">Весь каталог</a>
-      </div>
-      <div class="products-grid" aria-label="Новые товары">
-        <article class="product-card">
-          <div class="product-image product-1" aria-hidden="true"></div>
-          <span class="product-tag">Новинка</span>
-          <h3>Классический костюм</h3>
-          <p class="product-price">27 900 ₽</p>
-          <button class="btn btn-fill">В корзину</button>
-        </article>
-        <article class="product-card">
-          <div class="product-image product-2" aria-hidden="true"></div>
-          <span class="product-tag">Limited</span>
-          <h3>Льняная рубашка</h3>
-          <p class="product-price">9 200 ₽</p>
-          <button class="btn btn-fill">В корзину</button>
-        </article>
-        <article class="product-card">
-          <div class="product-image product-3" aria-hidden="true"></div>
-          <span class="product-tag">Новинка</span>
-          <h3>Базовая футболка</h3>
-          <p class="product-price">3 490 ₽</p>
-          <button class="btn btn-fill">В корзину</button>
-        </article>
-        <article class="product-card">
-          <div class="product-image product-4" aria-hidden="true"></div>
-          <span class="product-tag">Бестселлер</span>
-          <h3>Джинсы-бананы</h3>
-          <p class="product-price">11 800 ₽</p>
-          <button class="btn btn-fill">В корзину</button>
-        </article>
+    <section class="new-arrivals reveal" id="new" aria-labelledby="newArrivalsTitle">
+      <div class="container">
+
+        <div class="na-head">
+          <div class="na-title-block">
+            <p class="na-eyebrow">Весна — лето 2026</p>
+            <h2 id="newArrivalsTitle" class="na-heading">Новые поступления</h2>
+          </div>
+          <div class="na-head-right">
+            <a class="na-all-link" href="#">Весь каталог</a>
+            <div class="na-nav-wrap">
+              <button type="button" class="na-nav-btn" id="naPrev" aria-label="Предыдущий слайд">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" d="M14 6l-6 6 6 6"/>
+                </svg>
+              </button>
+              <button type="button" class="na-nav-btn" id="naNext" aria-label="Следующий слайд">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" d="M10 6l6 6-6 6"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="na-tabs-row" role="tablist" aria-label="Фильтр по категориям">
+          <button type="button" class="na-tab is-active" role="tab" aria-selected="true" data-na-tab="all">Все</button>
+          <button type="button" class="na-tab" role="tab" aria-selected="false" data-na-tab="suits">Костюмы</button>
+          <button type="button" class="na-tab" role="tab" aria-selected="false" data-na-tab="shirts">Рубашки</button>
+          <button type="button" class="na-tab" role="tab" aria-selected="false" data-na-tab="casual">Повседневное</button>
+        </div>
+
+        <div class="na-slider" data-na-slider>
+          <button type="button" class="na-overlay-btn na-overlay-btn--prev" id="naOverlayPrev" aria-label="Предыдущий слайд">
+            <span class="na-overlay-btn-circle">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" d="M14 6l-6 6 6 6"/>
+              </svg>
+            </span>
+          </button>
+          <button type="button" class="na-overlay-btn na-overlay-btn--next" id="naOverlayNext" aria-label="Следующий слайд">
+            <span class="na-overlay-btn-circle">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" d="M10 6l6 6-6 6"/>
+              </svg>
+            </span>
+          </button>
+          <div class="na-track" id="naTrack">
+
+            <article class="na-card" data-na-category="suits">
+              <div class="na-card-img">
+                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=600&q=80" alt="Костюм-тройка ERSAVAGE" loading="lazy">
+                <span class="na-badge na-badge--new">Новинка</span>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title">Костюм-тройка</h3>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">47 900 ₽</span>
+                  <span class="na-price-old">55 000 ₽</span>
+                </div>
+                <button type="button" class="na-cart-btn">В корзину</button>
+              </div>
+            </article>
+
+            <article class="na-card" data-na-category="suits">
+              <div class="na-card-img">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80" alt="Двубортный пиджак ERSAVAGE" loading="lazy">
+                <span class="na-badge na-badge--limited">Limited</span>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title">Двубортный пиджак</h3>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">32 500 ₽</span>
+                </div>
+                <button type="button" class="na-cart-btn">В корзину</button>
+              </div>
+            </article>
+
+            <article class="na-card" data-na-category="suits">
+              <div class="na-card-img">
+                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4b4552?auto=format&fit=crop&w=600&q=80" alt="Льняной пиджак ERSAVAGE" loading="lazy">
+                <span class="na-badge na-badge--new">Новинка</span>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title">Льняной пиджак</h3>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">24 500 ₽</span>
+                </div>
+                <button type="button" class="na-cart-btn">В корзину</button>
+              </div>
+            </article>
+
+            <article class="na-card" data-na-category="shirts">
+              <div class="na-card-img">
+                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80" alt="Льняная рубашка ERSAVAGE" loading="lazy">
+                <span class="na-badge na-badge--hit">Бестселлер</span>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title">Льняная рубашка</h3>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">9 200 ₽</span>
+                </div>
+                <button type="button" class="na-cart-btn">В корзину</button>
+              </div>
+            </article>
+
+            <article class="na-card" data-na-category="casual">
+              <div class="na-card-img">
+                <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=600&q=80" alt="Базовая футболка ERSAVAGE" loading="lazy">
+                <span class="na-badge na-badge--new">Новинка</span>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title">Базовая футболка</h3>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">3 490 ₽</span>
+                </div>
+                <button type="button" class="na-cart-btn">В корзину</button>
+              </div>
+            </article>
+
+            <article class="na-card" data-na-category="casual">
+              <div class="na-card-img">
+                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80" alt="Джинсы slim ERSAVAGE" loading="lazy">
+                <span class="na-badge na-badge--hit">Бестселлер</span>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title">Джинсы slim</h3>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">11 800 ₽</span>
+                  <span class="na-price-old">14 500 ₽</span>
+                </div>
+                <button type="button" class="na-cart-btn">В корзину</button>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="na-dots-row" id="naDots" role="tablist" aria-label="Слайды"></div>
+
       </div>
     </section>
 
-    <section class="section container reveal" id="categories">
-      <h2>Категории</h2>
-      <div class="categories-grid">
-        <a href="#" class="category-card" aria-label="Категория Костюмы">
-          <img
-            src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=1200&q=80"
-            alt="Костюмы ERSAVAGE"
-            loading="lazy"
-          >
-          <span class="category-title">Костюмы</span>
-        </a>
-        <a href="#" class="category-card" aria-label="Категория Повседневное">
-          <img
-            src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80"
-            alt="Повседневная одежда ERSAVAGE"
-            loading="lazy"
-          >
-          <span class="category-title">Повседневное</span>
-        </a>
-        <a href="#" class="category-card" aria-label="Категория Спортивные">
-          <img
-            src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80"
-            alt="Спортивные образы ERSAVAGE"
-            loading="lazy"
-          >
-          <span class="category-title">Спортивные</span>
-        </a>
+    <section class="cats reveal" id="categories" aria-labelledby="catsTitle">
+      <div class="container">
+
+        <div class="cats-head">
+          <div>
+            <p class="cats-eyebrow">Мужская одежда</p>
+            <h2 id="catsTitle" class="cats-heading">Каталог</h2>
+          </div>
+          <a href="#" class="cats-all-link">
+            Весь каталог
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="cats-grid">
+
+          <a href="#" class="cat-card cat-card--feat" aria-label="Перейти в раздел Костюмы">
+            <div class="cat-card-media">
+              <img src="img/XXXL%20(12).webp" alt="Костюмы ERSAVAGE" width="1200" height="900" loading="lazy" decoding="async">
+            </div>
+            <div class="cat-card-foot">
+              <div class="cat-card-info">
+                <span class="cat-card-label">Костюмы</span>
+                <span class="cat-card-meta">Двойки · Тройки · Смокинги</span>
+              </div>
+              <span class="cat-card-arrow" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="#" class="cat-card" aria-label="Перейти в раздел Пиджаки">
+            <div class="cat-card-media">
+              <img src="img/XXXL%20(1).webp" alt="Пиджаки ERSAVAGE" width="800" height="600" loading="lazy" decoding="async">
+            </div>
+            <div class="cat-card-foot">
+              <span class="cat-card-label">Пиджаки</span>
+              <span class="cat-card-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="#" class="cat-card" aria-label="Перейти в раздел Рубашки">
+            <div class="cat-card-media">
+              <img src="img/XXXL%20(2).webp" alt="Рубашки ERSAVAGE" width="800" height="600" loading="lazy" decoding="async">
+            </div>
+            <div class="cat-card-foot">
+              <span class="cat-card-label">Рубашки</span>
+              <span class="cat-card-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="#" class="cat-card" aria-label="Перейти в раздел Брюки">
+            <div class="cat-card-media">
+              <img src="img/XXXL%20(3).webp" alt="Брюки ERSAVAGE" width="800" height="600" loading="lazy" decoding="async">
+            </div>
+            <div class="cat-card-foot">
+              <span class="cat-card-label">Брюки</span>
+              <span class="cat-card-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="#" class="cat-card" aria-label="Перейти в раздел Куртки">
+            <div class="cat-card-media">
+              <img src="img/XXXL%20(5).webp" alt="Куртки ERSAVAGE" width="800" height="600" loading="lazy" decoding="async">
+            </div>
+            <div class="cat-card-foot">
+              <span class="cat-card-label">Куртки</span>
+              <span class="cat-card-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="#" class="cat-card" aria-label="Перейти в раздел Пальто">
+            <div class="cat-card-media">
+              <img src="img/XXXL%20(6).webp" alt="Пальто ERSAVAGE" width="800" height="600" loading="lazy" decoding="async">
+            </div>
+            <div class="cat-card-foot">
+              <span class="cat-card-label">Пальто</span>
+              <span class="cat-card-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="#" class="cat-card" aria-label="Перейти в раздел Аксессуары">
+            <div class="cat-card-media">
+              <img src="img/XXXL%20(7).webp" alt="Аксессуары ERSAVAGE" width="800" height="600" loading="lazy" decoding="async">
+            </div>
+            <div class="cat-card-foot">
+              <span class="cat-card-label">Аксессуары</span>
+              <span class="cat-card-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="#" class="cat-card" aria-label="Перейти в раздел Джинсы">
+            <div class="cat-card-media">
+              <img src="img/XXXL%20(9).webp" alt="Джинсы ERSAVAGE" width="800" height="600" loading="lazy" decoding="async">
+            </div>
+            <div class="cat-card-foot">
+              <span class="cat-card-label">Джинсы</span>
+              <span class="cat-card-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <a href="#" class="cat-card" aria-label="Перейти в раздел Водолазки">
+            <div class="cat-card-media">
+              <img src="img/XXXL%20(10).webp" alt="Водолазки ERSAVAGE" width="800" height="600" loading="lazy" decoding="async">
+            </div>
+            <div class="cat-card-foot">
+              <span class="cat-card-label">Водолазки</span>
+              <span class="cat-card-arrow" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+
+        </div>
       </div>
     </section>
 
-    <section class="promo reveal" aria-labelledby="promoTitle">
-      <div class="container promo-inner">
-        <p class="promo-eyebrow">Акция ERSAVAGE</p>
-        <h2 id="promoTitle">Большой розыгрыш призов для покупателей</h2>
-        <p class="promo-lead">Совершите покупку от 15 000 ₽, заполните анкету на кассе и участвуйте в розыгрыше до 31 мая.</p>
-        <ul class="promo-prizes" aria-label="Список призов">
-          <li>iPhone 17</li>
-          <li>PlayStation 5</li>
-          <li>AirPods Pro</li>
-          <li>3 костюма ERSAVAGE</li>
-          <li>3 сертификата по 10 000 ₽</li>
-        </ul>
-        <a href="#" class="btn btn-fill promo-cta">Узнать подробнее</a>
+
+    <section class="lookbook reveal" id="lookbook" aria-labelledby="lookbookTitle">
+      <div class="container">
+        <div class="lookbook-head">
+          <h2 class="lookbook-title" id="lookbookTitle">Подборки от стилистов</h2>
+        </div>
+        <div class="lookbook-grid">
+
+          <a href="#" class="lookbook-card">
+            <div class="lookbook-card-bg">
+              <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Коллекция для свадьбы" loading="lazy">
+            </div>
+            <div class="lookbook-card-body">
+              <p class="lookbook-card-eyebrow">Коллекция</p>
+              <h3 class="lookbook-card-title">ДЛЯ<br>СВАДЬБЫ</h3>
+              <p class="lookbook-card-sub">Стиль, комфорт,<br>уверенность в каждой детали.</p>
+              <ul class="lookbook-card-list">
+                <li>Идеальная посадка</li>
+                <li>Натуральные ткани</li>
+                <li>Уникальные модели</li>
+              </ul>
+            </div>
+            <p class="lookbook-card-foot">Ваш лучший день.<br>Ваш лучший образ.</p>
+          </a>
+
+          <a href="#" class="lookbook-card">
+            <div class="lookbook-card-bg">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="Большие размеры" loading="lazy">
+            </div>
+            <div class="lookbook-card-body">
+              <p class="lookbook-card-eyebrow">&nbsp;</p>
+              <h3 class="lookbook-card-title">БОЛЬШИЕ<br>РАЗМЕРЫ</h3>
+              <p class="lookbook-card-sub">Ваш момент.<br>Ваш стиль.</p>
+              <ul class="lookbook-card-list">
+                <li>Актуальный дизайн</li>
+                <li>Продуманный крой</li>
+                <li>Стиль, подчёркивающий фигуру</li>
+              </ul>
+            </div>
+            <p class="lookbook-card-foot">Стиль без компромиссов.</p>
+          </a>
+
+          <a href="#" class="lookbook-card">
+            <div class="lookbook-card-bg">
+              <img src="https://images.unsplash.com/photo-1537674394093-5a0ad9da8ae1?auto=format&fit=crop&w=800&q=80" alt="Коллекция для выпускного" loading="lazy">
+            </div>
+            <div class="lookbook-card-body">
+              <p class="lookbook-card-eyebrow">Коллекция</p>
+              <h3 class="lookbook-card-title">ДЛЯ<br>ВЫПУСКНОГО</h3>
+              <p class="lookbook-card-sub">Ваш момент.<br>Ваш стиль.</p>
+              <ul class="lookbook-card-list">
+                <li>Элегантные смокинги</li>
+                <li>Комфортные ткани</li>
+                <li>Образ, который запомнят</li>
+              </ul>
+            </div>
+            <p class="lookbook-card-foot">Войди в новую жизнь со стилем.</p>
+          </a>
+
+          <a href="#" class="lookbook-card">
+            <div class="lookbook-card-bg">
+              <img src="https://images.unsplash.com/photo-1548712591-6c492e65a3a7?auto=format&fit=crop&w=800&q=80" alt="Кожа и замша" loading="lazy">
+            </div>
+            <div class="lookbook-card-body">
+              <p class="lookbook-card-eyebrow">Коллекция</p>
+              <h3 class="lookbook-card-title">КОЖА<br>И ЗАМША</h3>
+              <p class="lookbook-card-sub">Стиль. Характер.<br>Качество на годы.</p>
+              <ul class="lookbook-card-list">
+                <li>Натуральные материалы</li>
+                <li>Высококачественная выделка</li>
+                <li>Актуальный дизайн</li>
+              </ul>
+            </div>
+            <p class="lookbook-card-foot">Сделано на века.</p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="recs reveal" id="recommendations" aria-labelledby="recsTitle">
+      <div class="container">
+        <div class="recs-head">
+          <h2 class="recs-title" id="recsTitle">Рекомендации для вас</h2>
+        </div>
+        <div class="recs-grid">
+
+          <article class="recs-card">
+            <div class="recs-card-img">
+              <img src="https://images.unsplash.com/photo-1625910513966-fbd9aacd4c5e?auto=format&fit=crop&w=600&q=80" alt="Поло из кашемира и шерсти, оранжевый" loading="lazy">
+              <span class="recs-badge">Новинка</span>
+              <button type="button" class="recs-wish" aria-label="В избранное">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="recs-swatches" aria-label="Цвета">
+                <span class="recs-swatch is-active" style="background:#b85c38;" title="Оранжевый"></span>
+                <span class="recs-swatch" style="background:#8b7355;" title="Коричневый"></span>
+                <span class="recs-swatch" style="background:#2c2c2c;" title="Чёрный"></span>
+                <span class="recs-swatch" style="background:#c8b99a;" title="Бежевый"></span>
+              </div>
+            </div>
+            <div class="recs-card-info">
+              <p class="recs-price">12 990 ₽</p>
+              <p class="recs-split"><span class="recs-split-dot" aria-hidden="true"></span>3 248 ₽ в Сплит</p>
+              <p class="recs-name">Поло из кашемира и шерсти оранжевого цвета</p>
+            </div>
+          </article>
+
+          <article class="recs-card">
+            <div class="recs-card-img">
+              <img src="https://images.unsplash.com/photo-1598032895397-b9472444bf93?auto=format&fit=crop&w=600&q=80" alt="Поло из кашемира и шерсти, коричневый" loading="lazy">
+              <span class="recs-badge">Новинка</span>
+              <button type="button" class="recs-wish" aria-label="В избранное">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="recs-swatches" aria-label="Цвета">
+                <span class="recs-swatch" style="background:#b85c38;" title="Оранжевый"></span>
+                <span class="recs-swatch is-active" style="background:#8b7355;" title="Коричневый"></span>
+                <span class="recs-swatch" style="background:#2c2c2c;" title="Чёрный"></span>
+                <span class="recs-swatch" style="background:#c8b99a;" title="Бежевый"></span>
+              </div>
+            </div>
+            <div class="recs-card-info">
+              <p class="recs-price">12 990 ₽</p>
+              <p class="recs-split"><span class="recs-split-dot" aria-hidden="true"></span>3 248 ₽ в Сплит</p>
+              <p class="recs-name">Поло из кашемира и шерсти коричневого цвета</p>
+            </div>
+          </article>
+
+          <article class="recs-card">
+            <div class="recs-card-img">
+              <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=600&q=80" alt="Поло из кашемира и шерсти, чёрный" loading="lazy">
+              <span class="recs-badge">Новинка</span>
+              <button type="button" class="recs-wish" aria-label="В избранное">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="recs-swatches" aria-label="Цвета">
+                <span class="recs-swatch" style="background:#b85c38;" title="Оранжевый"></span>
+                <span class="recs-swatch" style="background:#8b7355;" title="Коричневый"></span>
+                <span class="recs-swatch is-active" style="background:#2c2c2c;" title="Чёрный"></span>
+                <span class="recs-swatch" style="background:#c8b99a;" title="Бежевый"></span>
+              </div>
+            </div>
+            <div class="recs-card-info">
+              <p class="recs-price">12 990 ₽</p>
+              <p class="recs-split"><span class="recs-split-dot" aria-hidden="true"></span>3 248 ₽ в Сплит</p>
+              <p class="recs-name">Поло из кашемира и шерсти чёрного цвета</p>
+            </div>
+          </article>
+
+          <article class="recs-card">
+            <div class="recs-card-img">
+              <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&w=600&q=80" alt="Поло из кашемира и шерсти, бежевый" loading="lazy">
+              <span class="recs-badge">Новинка</span>
+              <button type="button" class="recs-wish" aria-label="В избранное">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="recs-swatches" aria-label="Цвета">
+                <span class="recs-swatch" style="background:#b85c38;" title="Оранжевый"></span>
+                <span class="recs-swatch" style="background:#8b7355;" title="Коричневый"></span>
+                <span class="recs-swatch" style="background:#2c2c2c;" title="Чёрный"></span>
+                <span class="recs-swatch is-active" style="background:#c8b99a;" title="Бежевый"></span>
+              </div>
+            </div>
+            <div class="recs-card-info">
+              <p class="recs-price">12 990 ₽</p>
+              <p class="recs-split"><span class="recs-split-dot" aria-hidden="true"></span>3 248 ₽ в Сплит</p>
+              <p class="recs-name">Поло из кашемира и шерсти бежевого цвета</p>
+            </div>
+          </article>
+
+          <article class="recs-card">
+            <div class="recs-card-img">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Льняная рубашка, белая" loading="lazy">
+              <button type="button" class="recs-wish" aria-label="В избранное">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="recs-swatches">
+                <span class="recs-swatch is-active" style="background:#f0ede8;" title="Белый"></span>
+                <span class="recs-swatch" style="background:#7a9e87;" title="Зелёный"></span>
+                <span class="recs-swatch" style="background:#6b8cba;" title="Голубой"></span>
+              </div>
+            </div>
+            <div class="recs-card-info">
+              <p class="recs-price">8 490 ₽</p>
+              <p class="recs-split"><span class="recs-split-dot" aria-hidden="true"></span>2 123 ₽ в Сплит</p>
+              <p class="recs-name">Льняная рубашка белого цвета</p>
+            </div>
+          </article>
+
+          <article class="recs-card">
+            <div class="recs-card-img">
+              <img src="https://images.unsplash.com/photo-1512353087810-25dfcd100962?auto=format&fit=crop&w=600&q=80" alt="Брюки slim, серые" loading="lazy">
+              <span class="recs-badge recs-badge--hit">Хит</span>
+              <button type="button" class="recs-wish" aria-label="В избранное">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="recs-swatches">
+                <span class="recs-swatch is-active" style="background:#888;" title="Серый"></span>
+                <span class="recs-swatch" style="background:#2c2c2c;" title="Чёрный"></span>
+                <span class="recs-swatch" style="background:#8b7355;" title="Коричневый"></span>
+              </div>
+            </div>
+            <div class="recs-card-info">
+              <p class="recs-price">11 800 ₽<span class="recs-price-old">14 500 ₽</span></p>
+              <p class="recs-split"><span class="recs-split-dot" aria-hidden="true"></span>2 950 ₽ в Сплит</p>
+              <p class="recs-name">Брюки slim серого цвета</p>
+            </div>
+          </article>
+
+          <article class="recs-card">
+            <div class="recs-card-img">
+              <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=600&q=80" alt="Костюм двойка" loading="lazy">
+              <span class="recs-badge">Новинка</span>
+              <button type="button" class="recs-wish" aria-label="В избранное">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="recs-swatches">
+                <span class="recs-swatch is-active" style="background:#3b3530;" title="Тёмно-коричневый"></span>
+                <span class="recs-swatch" style="background:#1a1a2e;" title="Тёмно-синий"></span>
+              </div>
+            </div>
+            <div class="recs-card-info">
+              <p class="recs-price">47 900 ₽<span class="recs-price-old">55 000 ₽</span></p>
+              <p class="recs-split"><span class="recs-split-dot" aria-hidden="true"></span>11 975 ₽ в Сплит</p>
+              <p class="recs-name">Костюм-тройка тёмно-коричневый</p>
+            </div>
+          </article>
+
+          <article class="recs-card">
+            <div class="recs-card-img">
+              <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80" alt="Двубортный пиджак" loading="lazy">
+              <button type="button" class="recs-wish" aria-label="В избранное">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="recs-swatches">
+                <span class="recs-swatch is-active" style="background:#4a5568;" title="Серо-синий"></span>
+                <span class="recs-swatch" style="background:#2d3748;" title="Тёмно-синий"></span>
+                <span class="recs-swatch" style="background:#1a202c;" title="Чёрный"></span>
+              </div>
+            </div>
+            <div class="recs-card-info">
+              <p class="recs-price">32 500 ₽</p>
+              <p class="recs-split"><span class="recs-split-dot" aria-hidden="true"></span>8 125 ₽ в Сплит</p>
+              <p class="recs-name">Двубортный пиджак серо-синего цвета</p>
+            </div>
+          </article>
+
+        </div>
       </div>
     </section>
 
@@ -414,230 +943,341 @@
       </div>
     </section>
 
-    <section class="section container reveal" id="stores" aria-labelledby="storesTitle">
+   
+
+    <section class="blog-section section reveal" id="blog" aria-labelledby="blogTitle">
+      <div class="container">
+        <div class="blog-head">
+          <div>
+            <p class="blog-eyebrow">Журнал</p>
+            <h2 id="blogTitle">Из блога ERSAVAGE</h2>
+          </div>
+          <a href="#" class="blog-all-link">
+            Все статьи
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="blog-grid">
+          <article class="blog-card">
+            <a class="blog-card-link" href="#">
+              <div class="blog-card-media">
+                <img src="img/XXXL%20(2).webp" alt="Льняные рубашки и брюки ERSAVAGE" width="800" height="600" loading="lazy" decoding="async">
+              </div>
+              <div class="blog-card-body">
+                <time class="blog-card-date" datetime="2026-05-10">10 мая 2026</time>
+                <h3 class="blog-card-title">Лён уже в наличии</h3>
+                <p class="blog-card-excerpt">Брюки и рубашки из льна: дышит, не липнет к телу и остывает в тени за минуту. Уже в магазинах по Крыму.</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="blog-card">
+            <a class="blog-card-link" href="#">
+              <div class="blog-card-media">
+                <img src="img/XXXL%20(4).webp" alt="Базовые футболки ERSAVAGE в шести расцветках" width="800" height="600" loading="lazy" decoding="async">
+              </div>
+              <div class="blog-card-body">
+                <time class="blog-card-date" datetime="2026-04-28">28 апреля 2026</time>
+                <h3 class="blog-card-title">Базовые футболки — 6 расцветок</h3>
+                <p class="blog-card-excerpt">Хлопок, который носится под кардиган, пиджак, с джинсами и брюками. Шесть оттенков на каждый день.</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="blog-card">
+            <a class="blog-card-link" href="#">
+              <div class="blog-card-media">
+                <img src="img/XXXL%20(9).webp" alt="Образы с поло и джинсами-бананами ERSAVAGE" width="800" height="600" loading="lazy" decoding="async">
+              </div>
+              <div class="blog-card-body">
+                <time class="blog-card-date" datetime="2026-04-15">15 апреля 2026</time>
+                <h3 class="blog-card-title">5 образов: поло + джинсы-бананы</h3>
+                <p class="blog-card-excerpt">Собрали базу мужского гардероба на каждый день — без стилиста, зато с посадкой собственного производства.</p>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  
+
+
+    <section class="stores-section section reveal" id="stores" aria-labelledby="storesTitle">
       <svg class="stores-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-        <symbol id="icon-store-pin" viewBox="0 0 24 24">
-          <path
-            d="M12 21c-3.1-2.85-6-6.2-6-9.9a6 6 0 1112 0c0 3.7-2.9 7.05-6 9.9z"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.75"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></path>
-          <circle cx="12" cy="10.5" r="2.25" fill="none" stroke="currentColor" stroke-width="1.75"></circle>
+        <symbol id="icon-clock" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+          <path d="M12 7v5l3 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
         </symbol>
       </svg>
-      <h2 id="storesTitle">Наши магазины</h2>
-      <p class="stores-intro">Четыре точки в Симферополе и магазины в Евпатории, Севастополе и Старом Крыму.</p>
-      <div class="stores-grid">
-        <article class="store-city-card">
-          <h3>Симферополь</h3>
-          <ul class="store-list">
-            <li class="store-row">
-              <span class="store-icon" aria-hidden="true">
-                <svg width="20" height="20" focusable="false"><use href="#icon-store-pin"></use></svg>
-              </span>
-              <div class="store-row-text">
-                <p class="store-address">Проспект Победы, 438А</p>
-                <p class="store-hours">10:00–21:00</p>
-              </div>
-            </li>
-            <li class="store-row">
-              <span class="store-icon" aria-hidden="true">
-                <svg width="20" height="20" focusable="false"><use href="#icon-store-pin"></use></svg>
-              </span>
-              <div class="store-row-text">
-                <p class="store-address">Рынок «Светофор», 1 ряд, бутик 99</p>
-                <p class="store-hours">10:00–18:00</p>
-              </div>
-            </li>
-            <li class="store-row">
-              <span class="store-icon" aria-hidden="true">
-                <svg width="20" height="20" focusable="false"><use href="#icon-store-pin"></use></svg>
-              </span>
-              <div class="store-row-text">
-                <p class="store-address">ТРК «Меганом», 2 этаж</p>
-                <p class="store-hours">10:00–21:00</p>
-              </div>
-            </li>
-            <li class="store-row">
-              <span class="store-icon" aria-hidden="true">
-                <svg width="20" height="20" focusable="false"><use href="#icon-store-pin"></use></svg>
-              </span>
-              <div class="store-row-text">
-                <p class="store-address">ТРЦ «Южная Галерея»</p>
-                <p class="store-hours">10:00–21:00</p>
-              </div>
-            </li>
-          </ul>
-        </article>
-        <article class="store-city-card">
-          <h3>Евпатория</h3>
-          <ul class="store-list">
-            <li class="store-row">
-              <span class="store-icon" aria-hidden="true">
-                <svg width="20" height="20" focusable="false"><use href="#icon-store-pin"></use></svg>
-              </span>
-              <div class="store-row-text">
-                <p class="store-address">ТЦ «Т-центр», 2 этаж</p>
-                <p class="store-hours">10:00–20:00</p>
-              </div>
-            </li>
-          </ul>
-        </article>
-        <article class="store-city-card">
-          <h3>Севастополь</h3>
-          <ul class="store-list">
-            <li class="store-row">
-              <span class="store-icon" aria-hidden="true">
-                <svg width="20" height="20" focusable="false"><use href="#icon-store-pin"></use></svg>
-              </span>
-              <div class="store-row-text">
-                <p class="store-address">ТЦ «Муссон», правое крыло</p>
-                <p class="store-hours">10:00–21:00</p>
-              </div>
-            </li>
-          </ul>
-        </article>
-        <article class="store-city-card">
-          <h3>Старый Крым</h3>
-          <ul class="store-list">
-            <li class="store-row">
-              <span class="store-icon" aria-hidden="true">
-                <svg width="20" height="20" focusable="false"><use href="#icon-store-pin"></use></svg>
-              </span>
-              <div class="store-row-text">
-                <p class="store-address">ул. Чапаева, 2</p>
-                <p class="store-hours">10:00–21:00</p>
-              </div>
-            </li>
-          </ul>
-        </article>
-      </div>
-    </section>
 
-    <section class="section reviews-section reveal" id="reviews" aria-labelledby="reviewsTitle">
-      <div class="container reviews-section-head">
-        <h2 id="reviewsTitle">Отзывы</h2>
-        <p class="reviews-section-lead">Что говорят о ERSAVAGE в магазинах и онлайн</p>
-      </div>
-      <div
-        class="reviews-slider"
-        tabindex="0"
-        role="region"
-        aria-label="Отзывы клиентов. Прокрутите горизонтально, чтобы увидеть больше."
-      >
-        <article class="review-card">
-          <p class="sr-only">Оценка: 5 из 5</p>
-          <div class="review-stars" aria-hidden="true">★★★★★</div>
-          <blockquote>
-            <p>Отличная посадка костюма и очень приятная ткань. Носится без малейшего дискомфорта.</p>
-          </blockquote>
-          <footer class="review-meta"><cite>Илья</cite><span class="review-tag">Симферополь</span></footer>
-        </article>
-        <article class="review-card">
-          <p class="sr-only">Оценка: 5 из 5</p>
-          <div class="review-stars" aria-hidden="true">★★★★★</div>
-          <blockquote>
-            <p>Быстро помогли подобрать образ и аксессуары. Сервис на уровне люксовых бутиков.</p>
-          </blockquote>
-          <footer class="review-meta"><cite>Анна</cite><span class="review-tag">Севастополь</span></footer>
-        </article>
-        <article class="review-card">
-          <p class="sr-only">Оценка: 5 из 5</p>
-          <div class="review-stars" aria-hidden="true">★★★★★</div>
-          <blockquote>
-            <p>Покупаю здесь уже не первый сезон — качество стабильно высокое, вещи не «расползаются» после стирки.</p>
-          </blockquote>
-          <footer class="review-meta"><cite>Роман</cite><span class="review-tag">Евпатория</span></footer>
-        </article>
-        <article class="review-card">
-          <p class="sr-only">Оценка: 5 из 5</p>
-          <div class="review-stars" aria-hidden="true">★★★★★</div>
-          <blockquote>
-            <p>Льняная рубашка села идеально. Отдельное спасибо консультанту за честные рекомендации по размеру.</p>
-          </blockquote>
-          <footer class="review-meta"><cite>Дмитрий</cite><span class="review-tag">Старый Крым</span></footer>
-        </article>
-        <article class="review-card">
-          <p class="sr-only">Оценка: 5 из 5</p>
-          <div class="review-stars" aria-hidden="true">★★★★★</div>
-          <blockquote>
-            <p>Джинсы и базовые футболки стали основой гардероба. Цена адекватная за такой крой и материалы.</p>
-          </blockquote>
-          <footer class="review-meta"><cite>Екатерина</cite><span class="review-tag">Симферополь</span></footer>
-        </article>
-      </div>
-    </section>
+      <div class="container">
+        <div class="stores-top">
+          <div class="stores-top-left">
+            <p class="stores-eyebrow">Наши магазины</p>
+            <h2 id="storesTitle">7 точек по Крыму</h2>
+            <p class="stores-intro">Четыре точки в Симферополе и магазины в Евпатории, Севастополе и Старом Крыму.</p>
+          </div>
+          <div class="stores-top-right" aria-hidden="true">
+            <div class="stores-stat">
+              <span class="stores-stat-num">7</span>
+              <span class="stores-stat-label">магазинов</span>
+            </div>
+            <div class="stores-divider"></div>
+            <div class="stores-stat">
+              <span class="stores-stat-num">4</span>
+              <span class="stores-stat-label">города</span>
+            </div>
+          </div>
+        </div>
 
-    <section class="subscribe reveal" id="newsletter" aria-labelledby="newsletterTitle">
-      <div class="container subscribe-inner">
-        <h2 id="newsletterTitle" class="subscribe-title">Подписка на рассылку</h2>
-        <form class="subscribe-form" aria-label="Подписка на рассылку ERSAVAGE">
-          <label class="sr-only" for="newsletter-email">Email</label>
-          <input
-            id="newsletter-email"
-            name="email"
-            type="email"
-            inputmode="email"
-            autocomplete="email"
-            placeholder="Ваш email"
-            required
-          >
-          <button class="btn btn-fill subscribe-submit" type="submit">Подписаться</button>
-        </form>
+        <div class="stores-tabs" role="tablist" aria-label="Выбор города">
+          <button class="stores-tab is-active" type="button" role="tab" aria-selected="true" data-stores-tab="simf" aria-controls="panel-simf">
+            Симферополь <span class="stores-tab-count" aria-label="4 магазина">4</span>
+          </button>
+          <button class="stores-tab" type="button" role="tab" aria-selected="false" data-stores-tab="evp" aria-controls="panel-evp">
+            Евпатория <span class="stores-tab-count" aria-label="1 магазин">1</span>
+          </button>
+          <button class="stores-tab" type="button" role="tab" aria-selected="false" data-stores-tab="sev" aria-controls="panel-sev">
+            Севастополь <span class="stores-tab-count" aria-label="1 магазин">1</span>
+          </button>
+          <button class="stores-tab" type="button" role="tab" aria-selected="false" data-stores-tab="stk" aria-controls="panel-stk">
+            Старый Крым <span class="stores-tab-count" aria-label="1 магазин">1</span>
+          </button>
+        </div>
+
+        <div class="stores-panels">
+
+          <div class="stores-panel is-active" id="panel-simf" data-stores-panel="simf" role="tabpanel">
+            <div class="stores-cards">
+              <article class="store-card">
+                <span class="store-card-num" aria-hidden="true">01</span>
+                <div class="store-card-body">
+                  <p class="store-card-name">Проспект Победы</p>
+                  <p class="store-card-addr">просп. Победы, 438А</p>
+                </div>
+                <div class="store-card-foot">
+                  <span class="store-hours-badge">
+                    <svg width="12" height="12" focusable="false" aria-hidden="true"><use href="#icon-clock"></use></svg>
+                    10:00–21:00
+                  </span>
+                  <a class="store-map-link" href="#" aria-label="Открыть на карте">
+                    На карте
+                    <svg width="14" height="14" focusable="false" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+                  </a>
+                </div>
+              </article>
+
+              <article class="store-card">
+                <span class="store-card-num" aria-hidden="true">02</span>
+                <div class="store-card-body">
+                  <p class="store-card-name">Рынок «Светофор»</p>
+                  <p class="store-card-addr">1 ряд, бутик 99</p>
+                </div>
+                <div class="store-card-foot">
+                  <span class="store-hours-badge">
+                    <svg width="12" height="12" focusable="false" aria-hidden="true"><use href="#icon-clock"></use></svg>
+                    10:00–18:00
+                  </span>
+                  <a class="store-map-link" href="#" aria-label="Открыть на карте">
+                    На карте
+                    <svg width="14" height="14" focusable="false" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+                  </a>
+                </div>
+              </article>
+
+              <article class="store-card">
+                <span class="store-card-num" aria-hidden="true">03</span>
+                <div class="store-card-body">
+                  <p class="store-card-name">ТРК «Меганом»</p>
+                  <p class="store-card-addr">2 этаж</p>
+                </div>
+                <div class="store-card-foot">
+                  <span class="store-hours-badge">
+                    <svg width="12" height="12" focusable="false" aria-hidden="true"><use href="#icon-clock"></use></svg>
+                    10:00–21:00
+                  </span>
+                  <a class="store-map-link" href="#" aria-label="Открыть на карте">
+                    На карте
+                    <svg width="14" height="14" focusable="false" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+                  </a>
+                </div>
+              </article>
+
+              <article class="store-card">
+                <span class="store-card-num" aria-hidden="true">04</span>
+                <div class="store-card-body">
+                  <p class="store-card-name">ТРЦ «Южная Галерея»</p>
+                  <p class="store-card-addr">Симферополь</p>
+                </div>
+                <div class="store-card-foot">
+                  <span class="store-hours-badge">
+                    <svg width="12" height="12" focusable="false" aria-hidden="true"><use href="#icon-clock"></use></svg>
+                    10:00–21:00
+                  </span>
+                  <a class="store-map-link" href="#" aria-label="Открыть на карте">
+                    На карте
+                    <svg width="14" height="14" focusable="false" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="stores-panel" id="panel-evp" data-stores-panel="evp" role="tabpanel">
+            <div class="stores-cards stores-cards--solo">
+              <article class="store-card store-card--wide">
+                <span class="store-card-num" aria-hidden="true">01</span>
+                <div class="store-card-body">
+                  <p class="store-card-name">ТЦ «Т-центр»</p>
+                  <p class="store-card-addr">2 этаж, Евпатория</p>
+                </div>
+                <div class="store-card-foot">
+                  <span class="store-hours-badge">
+                    <svg width="12" height="12" focusable="false" aria-hidden="true"><use href="#icon-clock"></use></svg>
+                    10:00–20:00
+                  </span>
+                  <a class="store-map-link" href="#" aria-label="Открыть на карте">
+                    На карте
+                    <svg width="14" height="14" focusable="false" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="stores-panel" id="panel-sev" data-stores-panel="sev" role="tabpanel">
+            <div class="stores-cards stores-cards--solo">
+              <article class="store-card store-card--wide">
+                <span class="store-card-num" aria-hidden="true">01</span>
+                <div class="store-card-body">
+                  <p class="store-card-name">ТЦ «Муссон»</p>
+                  <p class="store-card-addr">правое крыло, Севастополь</p>
+                </div>
+                <div class="store-card-foot">
+                  <span class="store-hours-badge">
+                    <svg width="12" height="12" focusable="false" aria-hidden="true"><use href="#icon-clock"></use></svg>
+                    10:00–21:00
+                  </span>
+                  <a class="store-map-link" href="#" aria-label="Открыть на карте">
+                    На карте
+                    <svg width="14" height="14" focusable="false" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="stores-panel" id="panel-stk" data-stores-panel="stk" role="tabpanel">
+            <div class="stores-cards stores-cards--solo">
+              <article class="store-card store-card--wide">
+                <span class="store-card-num" aria-hidden="true">01</span>
+                <div class="store-card-body">
+                  <p class="store-card-name">ул. Чапаева</p>
+                  <p class="store-card-addr">ул. Чапаева, 2, Старый Крым</p>
+                </div>
+                <div class="store-card-foot">
+                  <span class="store-hours-badge">
+                    <svg width="12" height="12" focusable="false" aria-hidden="true"><use href="#icon-clock"></use></svg>
+                    10:00–21:00
+                  </span>
+                  <a class="store-map-link" href="#" aria-label="Открыть на карте">
+                    На карте
+                    <svg width="14" height="14" focusable="false" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer" id="footer">
     <div class="container footer-inner">
+
       <div class="footer-brand">
         <a class="footer-logo" href="#" aria-label="ERSAVAGE — на главную">
-          <img src="img/logo.svg" alt="ERSAVAGE">
+          <img src="img/logo.svg" alt="" width="28" height="28" aria-hidden="true">
+          <span>ERSAVAGE</span>
         </a>
-        <p class="footer-tagline">Одеваем поколения уже очень давно</p>
+        <div class="footer-social" aria-label="Социальные сети">
+          <a href="#" class="footer-social-link" rel="noopener noreferrer" aria-label="Telegram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 4L11.5 14.5M22 4l-7 16-3.5-7.5L2 9l20-5z"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" rel="noopener noreferrer" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" rel="noopener noreferrer" aria-label="ВКонтакте">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.587-1.496c.598-.186 1.364 1.26 2.175 1.816.616.422 1.084.33 1.084.33l2.175-.03s1.137-.071.598-.964c-.044-.073-.314-.658-1.617-1.862-1.366-1.262-1.183-.528.462-1.616.998-.674 1.396-1.086 1.27-1.262-.116-.163-.833-.12-.833-.12l-2.37.015s-.176-.024-.306.052c-.12.071-.197.234-.197.234s-.353.944-.82 1.748c-.988 1.674-1.384 1.762-1.547 1.658-.376-.24-.282-.966-.282-1.484 0-1.612.244-2.284-.476-2.456-.238-.057-.413-.095-1.023-.101-.782-.008-1.444.003-1.818.188-.252.126-.446.407-.328.423.146.02.477.09.652.33.226.31.218 1.005.218 1.005s.13 1.92-.302 2.158c-.297.163-.704-.169-1.578-1.686-.447-.776-.784-1.634-.784-1.634s-.065-.16-.182-.246c-.141-.103-.338-.136-.338-.136l-2.254.015s-.338.01-.462.155c-.11.13-.008.4-.008.4s1.77 4.14 3.773 6.23c1.836 1.914 3.923 1.787 3.923 1.787h.942z"/></svg>
+          </a>
+        </div>
       </div>
-      <nav class="footer-col" aria-labelledby="footer-catalog">
-        <h3 id="footer-catalog">Каталог</h3>
+
+      <nav class="footer-col" aria-label="О магазине">
         <ul>
+          <li><a href="#about">О магазине</a></li>
+          <li><a href="#">Оплата</a></li>
+          <li><a href="#">Доставка</a></li>
+          <li><a href="#">Возврат</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Каталог — одежда">
+        <ul>
+          <li><a href="#categories">Пиджаки</a></li>
+          <li><a href="#categories">Брюки</a></li>
+          <li><a href="#categories">Рубашки</a></li>
+          <li><a href="#categories">Трикотаж</a></li>
           <li><a href="#categories">Костюмы</a></li>
-          <li><a href="#categories">Повседневное</a></li>
-          <li><a href="#categories">Спортивные</a></li>
-          <li><a href="#new">Новинки</a></li>
         </ul>
       </nav>
-      <nav class="footer-col" aria-labelledby="footer-info">
-        <h3 id="footer-info">Информация</h3>
+
+      <nav class="footer-col" aria-label="Каталог — верхняя одежда">
         <ul>
-          <li><a href="#about">О бренде</a></li>
-          <li><a href="#">Доставка и оплата</a></li>
-          <li><a href="#">Контакты</a></li>
-          <li><a href="#newsletter">Рассылка</a></li>
+          <li><a href="#categories">Куртки</a></li>
+          <li><a href="#categories">Пальто</a></li>
+          <li><a href="#categories">Аксессуары</a></li>
         </ul>
       </nav>
-      <nav class="footer-col" aria-labelledby="footer-stores">
-        <h3 id="footer-stores">Магазины</h3>
-        <ul>
-          <li><a href="#stores">Симферополь</a></li>
-          <li><a href="#stores">Евпатория</a></li>
-          <li><a href="#stores">Севастополь</a></li>
-          <li><a href="#stores">Старый Крым</a></li>
-        </ul>
-      </nav>
-      <nav class="footer-col" aria-labelledby="footer-social">
-        <h3 id="footer-social">Соцсети</h3>
-        <ul>
-          <li><a href="#" rel="noopener noreferrer">Telegram</a></li>
-          <li><a href="#" rel="noopener noreferrer">VK</a></li>
-          <li><a href="#" rel="noopener noreferrer">Instagram</a></li>
-        </ul>
-      </nav>
+
+      <div class="footer-contacts">
+        <p class="footer-contacts-label">Контакты</p>
+        <dl class="footer-contacts-list">
+          <div class="footer-contact-row">
+            <dt>Адрес</dt>
+            <dd>Симферополь, просп. Победы, 438А</dd>
+          </div>
+          <div class="footer-contact-row">
+            <dt>Телефон</dt>
+            <dd><a href="tel:+79783111101">+7 (978) 311-11-01</a></dd>
+          </div>
+          <div class="footer-contact-row">
+            <dt>Режим работы</dt>
+            <dd>Ежедневно, 10:00–20:00</dd>
+          </div>
+          <div class="footer-contact-row">
+            <dt>Эл. почта</dt>
+            <dd><a href="mailto:info@ersavage.ru">info@ersavage.ru</a></dd>
+          </div>
+        </dl>
+      </div>
+
     </div>
     <div class="footer-bottom">
-      <div class="container">
-        <p class="copyright">© 2026 ERSAVAGE</p>
+      <div class="container footer-bottom-inner">
+        <span class="footer-legal-item">ИП Савченко Е. В.</span>
+        <a href="#" class="footer-legal-item footer-legal-link">Пользовательское соглашение</a>
+        <a href="#" class="footer-legal-item footer-legal-link">Политика конфиденциальности</a>
       </div>
     </div>
   </footer>
