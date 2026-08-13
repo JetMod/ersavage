@@ -12,8 +12,7 @@
   <meta property="og:description" content="Собственное производство в Крыму. Костюмы, пиджаки, рубашки. 7 магазинов в Симферополе, Евпатории и Севастополе. Доставка по России.">
   <meta property="og:url" content="https://ersavage.ru/">
   <meta property="og:locale" content="ru_RU">
-  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
-  <link rel="apple-touch-icon" href="img/logo.jpg">
+  <link rel="icon" type="image/svg+xml" href="img/favicon-v2.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -46,76 +45,92 @@
             <li role="option" aria-selected="false" data-city="Старый Крым">Старый Крым</li>
           </ul>
         </div>
-        <nav class="header-utility-nav" aria-label="Информация о компании">
-          <a class="header-utility-nav-link" href="#about">О компании</a>
-          <a class="header-utility-nav-link" href="sales.html">Услуги и акции</a>
-          <a class="header-utility-nav-link" href="#">Доставка и оплата</a>
-          <a class="header-utility-nav-link" href="#">Блог</a>
-        </nav>
+        <div class="header-utility-contact">
+          <a href="tel:+79783111101" class="header-utility-phone">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            +7 (978) 311-11-01
+          </a>
+          <span class="header-utility-hours">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+              <path d="M12 7v5l3 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            ежедневно с 10:00 до 20:00
+          </span>
+        </div>
       </div>
     </div>
 
     <div class="header-main">
       <div class="container header-main-inner">
 
-        <a class="header-logo" href="index.html" aria-label="ERSAVAGE — на главную">
-          <img src="img/logo.jpg" alt="ERSAVAGE" width="48" height="48">
-        </a>
-
-        <div class="header-contact">
-          <a class="header-contact-phone" href="tel:+79783111101">+7 (978) 311-11-01</a>
-          <span class="header-contact-hours">ежедневно с 10:00 до 20:00</span>
+        <!-- LEFT: Каталог pill -->
+        <div class="header-main-start">
+          <button type="button" class="header-catalog-pill" aria-label="Открыть каталог">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M5 7h14M5 12h14M5 17h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            </svg>
+            Каталог
+          </button>
         </div>
 
-        <form class="header-search" role="search" action="#" method="get">
-          <span class="header-search-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
-              <path d="M16 16L21 21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <label class="sr-only" for="headerSearchInput">Поиск по каталогу</label>
-          <input id="headerSearchInput" type="search" name="q" placeholder="Например, костюм" autocomplete="off">
-        </form>
+        <!-- CENTER: Brand name -->
+        <div class="header-brand-center">
+          <a class="header-brand-name" href="#" aria-label="ERSAVAGE — на главную">ERSAVAGE</a>
+        </div>
 
-        <div class="header-actions">
-          <button type="button" class="header-action header-wishlist-btn" aria-label="Избранное">
-            <span class="wishlist-badge" aria-hidden="true"></span>
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
-            </svg>
-          </button>
-          <a href="#" class="header-action header-cart-link" aria-label="Корзина, 3 товара">
-            <span class="cart-badge">3</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M6 7h15l-1.5 9h-12L6 7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
-              <path d="M6 7H4V5h2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-              <circle cx="10.5" cy="20" r="1.5" fill="currentColor"></circle>
-              <circle cx="17.5" cy="20" r="1.5" fill="currentColor"></circle>
-            </svg>
-          </a>
-          <a href="#" class="header-action header-account-link">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <circle cx="12" cy="8" r="3.25" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
-              <path d="M6.5 20.5v-.5a5.5 5.5 0 0111 0v.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
-            </svg>
-            <span>Личный кабинет</span>
-          </a>
-          <button
-            type="button"
-            class="header-action header-menu-btn"
-            data-header-menu
-            aria-expanded="false"
-            aria-controls="headerMobileDrawer"
-            aria-label="Открыть меню"
-          >
-            <svg class="header-menu-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M5 7h14M5 12h14M5 17h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-            </svg>
-            <svg class="header-menu-close-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-            </svg>
-          </button>
+        <!-- RIGHT: Actions + mobile menu -->
+        <div class="header-main-end">
+          <div class="header-actions">
+            <button type="button" class="header-action-item" id="headerSearchToggle" aria-label="Поиск" aria-expanded="false" aria-controls="headerSearchOverlay">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+                <path d="M16 16L21 21" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+              </svg>
+              <span>Поиск</span>
+            </button>
+            <button type="button" class="header-action-item header-wishlist-btn" aria-label="Избранное">
+              <span class="wishlist-badge" aria-hidden="true"></span>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+              </svg>
+              <span>Избранное</span>
+            </button>
+            <a href="#" class="header-action-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="8" r="3.25" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+                <path d="M6.5 20.5v-.5a5.5 5.5 0 0111 0v.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+              </svg>
+              <span>Войти</span>
+            </a>
+            <a href="#" class="header-action-item header-cart-link" aria-label="Корзина, 3 товара">
+              <span class="cart-badge">3</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M6 7h15l-1.5 9h-12L6 7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+                <path d="M6 7H4V5h2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+                <circle cx="10.5" cy="20" r="1.5" fill="currentColor"></circle>
+                <circle cx="17.5" cy="20" r="1.5" fill="currentColor"></circle>
+              </svg>
+              <span>Корзина</span>
+            </a>
+            <button
+              type="button"
+              class="header-icon-btn header-menu-btn"
+              data-header-menu
+              aria-expanded="false"
+              aria-controls="headerMobileDrawer"
+              aria-label="Открыть меню"
+            >
+              <svg class="header-menu-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M5 7h14M5 12h14M5 17h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+              </svg>
+              <svg class="header-menu-close-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+              </svg>
+            </button>
+          </div>
         </div>
 
       </div>
@@ -124,12 +139,6 @@
     <div class="header-subnav" aria-label="Категории каталога">
       <div class="header-subnav-bg" aria-hidden="true"></div>
       <div class="container header-subnav-inner">
-        <button type="button" class="header-catalog-btn" data-header-menu aria-label="Открыть каталог">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M5 7h14M5 12h14M5 17h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-          </svg>
-          Каталог
-        </button>
         <nav class="subnav-links" aria-label="Направления">
           <a href="sales.html">Акции</a>
           <a href="suits.html">Костюмы</a>
@@ -139,6 +148,34 @@
           <a href="#">Обувь</a>
           <a href="#">Аксессуары</a>
         </nav>
+      </div>
+    </div>
+
+    <!-- Search overlay -->
+    <div class="header-search-overlay" id="headerSearchOverlay" aria-hidden="true">
+      <button type="button" class="header-search-overlay-backdrop" id="headerSearchBackdrop" aria-label="Закрыть поиск"></button>
+      <div class="header-search-overlay-content">
+        <form class="header-search-overlay-form" role="search" action="#" method="get">
+          <span class="header-search-overlay-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+              <path d="M16 16L21 21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <label class="sr-only" for="headerSearchOverlayInput">Поиск по каталогу</label>
+          <input
+            id="headerSearchOverlayInput"
+            type="search"
+            name="q"
+            placeholder="Поиск по каталогу..."
+            autocomplete="off"
+          >
+          <button type="button" class="header-search-overlay-close" id="headerSearchClose" aria-label="Закрыть поиск">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </svg>
+          </button>
+        </form>
       </div>
     </div>
 
@@ -196,150 +233,165 @@
   <main id="main-content">
     <section class="hero" aria-labelledby="heroTitle" data-hero>
       <h1 id="heroTitle" class="sr-only">ERSAVAGE — мужские костюмы и одежда в Крыму</h1>
-
-      <div class="container hero-inner">
-      <div
-        class="hero-stage"
-        role="region"
-        aria-roledescription="карусель"
-        aria-label="Главные предложения"
-        tabindex="0"
-        data-hero-viewport
-      >
-        <article class="hero-slide is-active" aria-hidden="false">
-          <div class="hero-slide-media">
-            <img
-              src="img/hero-suit.jpg"
-              alt="Мужской костюм-тройка ERSAVAGE"
-              width="1920"
-              height="1280"
-              fetchpriority="high"
-              decoding="async"
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-main">
+            <div class="hero-main-card">
+            <div
+              class="hero-slides"
+              role="region"
+              aria-roledescription="карусель"
+              aria-label="Главные предложения"
+              tabindex="0"
+              data-hero-viewport
             >
-          </div>
-          <div class="hero-slide-inner">
-            <div class="hero-copy">
-              <p class="hero-eyebrow"><span class="hero-eyebrow-rule" aria-hidden="true"></span>Весна — лето 2026</p>
-              <p class="hero-title">Костюм, <em>сшитый</em><br>под ваш характер</p>
-              <p class="hero-lead">Собственное производство в Крыму: выверенный крой, благородные ткани и посадка по фигуре.</p>
-              <div class="hero-actions">
-                <a class="hero-btn hero-btn--solid" href="#new">Смотреть коллекцию</a>
-                <a class="hero-btn hero-btn--ghost" href="#stores">Записаться на примерку</a>
+              <article
+                class="hero-slide is-active"
+                data-foot-primary="5% с каждой покупки"
+                data-foot-secondary="На бонусную карту"
+                aria-hidden="false"
+              >
+                <div class="hero-slide-visual">
+                  <img
+                    src="img/XXXL.webp"
+                    alt="Коллекция ERSAVAGE — деловой стиль"
+                    width="1600"
+                    height="1200"
+                    fetchpriority="high"
+                    decoding="async"
+                  >
+                </div>
+                <div class="hero-slide-body">
+                  <a class="hero-slide-cta" href="#">Записаться на примерку</a>
+                </div>
+              </article>
+              <article
+                class="hero-slide"
+                data-foot-primary="Новые модели каждую неделю"
+                data-foot-secondary="Весна — лето 2026"
+                aria-hidden="true"
+              >
+                <div class="hero-slide-visual">
+                  <img
+                    src="img/XXXL%20(4).webp"
+                    alt="Костюмы и пиджаки ERSAVAGE"
+                    width="1600"
+                    height="1200"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </div>
+                <div class="hero-slide-body">
+                  <a class="hero-slide-cta" href="#new">Смотреть новинки</a>
+                </div>
+              </article>
+              <article
+                class="hero-slide"
+                data-foot-primary="Идеальный подарок"
+                data-foot-secondary="Электронная доставка на e-mail"
+                aria-hidden="true"
+              >
+                <div class="hero-slide-visual">
+                  <img
+                    src="img/XXXL%20(8).webp"
+                    alt="Новая коллекция ERSAVAGE"
+                    width="1600"
+                    height="1200"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </div>
+                <div class="hero-slide-body">
+                  <a class="hero-slide-cta" href="#">Выбрать сертификат</a>
+                </div>
+              </article>
+            </div>
+            <div class="hero-toolbar">
+              <div class="hero-toolbar-text">
+                <p class="hero-toolbar-line1" data-hero-foot-primary>5% с каждой покупки</p>
+                <p class="hero-toolbar-line2" data-hero-foot-secondary>На бонусную карту</p>
+              </div>
+              <div class="hero-toolbar-controls">
+                <div class="hero-dots-group">
+                  <div class="hero-dots" role="tablist" aria-label="Выбор слайда">
+                    <button type="button" class="hero-dot is-active" data-hero-dot="0" role="tab" aria-selected="true" aria-label="Слайд 1"></button>
+                    <button type="button" class="hero-dot" data-hero-dot="1" role="tab" aria-selected="false" aria-label="Слайд 2"></button>
+                    <button type="button" class="hero-dot" data-hero-dot="2" role="tab" aria-selected="false" aria-label="Слайд 3"></button>
+                  </div>
+                  <div class="hero-autoplay-progress" data-hero-progress aria-hidden="true">
+                    <span class="hero-autoplay-progress-fill" data-hero-progress-fill></span>
+                  </div>
+                </div>
+                <div class="hero-toolbar-nav">
+                  <button type="button" class="hero-nav-btn" data-hero-prev aria-label="Предыдущий слайд">
+                    <svg class="hero-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" d="M14 6l-6 6 6 6"></path>
+                    </svg>
+                  </button>
+                  <span class="hero-nav-counter" data-hero-counter aria-live="polite">01 — 03</span>
+                  <button type="button" class="hero-nav-btn" data-hero-next aria-label="Следующий слайд">
+                    <svg class="hero-nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" d="M10 6l6 6-6 6"></path>
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </article>
-
-        <article class="hero-slide" aria-hidden="true">
-          <div class="hero-slide-media">
-            <img
-              src="img/hero-tuxedo.jpg"
-              alt="Смокинг ERSAVAGE"
-              width="1920"
-              height="1280"
-              loading="lazy"
-              decoding="async"
-            >
-          </div>
-          <div class="hero-slide-inner">
-            <div class="hero-copy">
-              <p class="hero-eyebrow"><span class="hero-eyebrow-rule" aria-hidden="true"></span>Смокинги и торжества</p>
-              <p class="hero-title">Вечер, который<br><em>запомнят</em></p>
-              <p class="hero-lead">Смокинги, фраки и вечерние рубашки — с подгонкой по фигуре за один-три дня.</p>
-              <div class="hero-actions">
-                <a class="hero-btn hero-btn--solid" href="suits.html">Выбрать смокинг</a>
-                <a class="hero-btn hero-btn--ghost" href="#stores">Записаться на примерку</a>
-              </div>
             </div>
           </div>
-        </article>
 
-        <article class="hero-slide" aria-hidden="true">
-          <div class="hero-slide-media">
-            <img
-              src="img/hero-atelier.jpg"
-              alt="Ателье ERSAVAGE: новые костюмы на вешалах и рулоны тканей"
-              width="1920"
-              height="1280"
-              loading="lazy"
-              decoding="async"
-            >
-          </div>
-          <div class="hero-slide-inner">
-            <div class="hero-copy">
-              <p class="hero-eyebrow"><span class="hero-eyebrow-rule" aria-hidden="true"></span>Новое поступление</p>
-              <p class="hero-title">Новые модели<br><em>каждую</em> неделю</p>
-              <p class="hero-lead">От строгой классики до двубортных силуэтов — более сорока моделей в наличии.</p>
-              <div class="hero-actions">
-                <a class="hero-btn hero-btn--solid" href="#new">Смотреть новинки</a>
-                <a class="hero-btn hero-btn--ghost" href="sales.html">Подарочный сертификат</a>
+          <aside class="hero-aside" aria-label="Подборки">
+            <a href="#new" class="hero-tile">
+              <div class="hero-tile-visual">
+                <img
+                  src="img/XXXL%20(11).webp"
+                  alt="Новая коллекция костюмов ERSAVAGE"
+                  width="1200"
+                  height="1500"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <div class="hero-tile-main">
+                  <p class="hero-tile-label">Костюмы</p>
+                  <p class="hero-tile-sub">Крой и ткани сезона</p>
+                </div>
               </div>
-            </div>
-          </div>
-        </article>
-
-        <span class="hero-vignette" aria-hidden="true"></span>
-
-        <div class="hero-nav">
-          <button type="button" class="hero-nav-btn" data-hero-prev aria-label="Предыдущий слайд">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M14 6l-6 6 6 6"></path>
-            </svg>
-          </button>
-          <button type="button" class="hero-nav-btn" data-hero-next aria-label="Следующий слайд">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M10 6l6 6-6 6"></path>
-            </svg>
-          </button>
+              <div class="hero-tile-foot">
+                <div class="hero-tile-foot-text">
+                  <p class="hero-tile-foot-strong">Новые линейки кроя и тканей</p>
+                  <p class="hero-tile-foot-muted">Весна — лето 2026</p>
+                </div>
+                <span class="hero-tile-foot-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </a>
+            <a href="#" class="hero-tile hero-tile--dark">
+              <div class="hero-tile-visual hero-tile-visual--card" aria-hidden="true">
+                <div class="hero-gift-card">
+                  <span class="hero-gift-card-brand">ERSAVAGE</span>
+                  <span class="hero-gift-card-line"></span>
+                  <span class="hero-gift-card-no">**** 1026</span>
+                </div>
+              </div>
+              <div class="hero-tile-cert-copy">
+                <div class="hero-cert-text">
+                  <p class="hero-cert-title">Сертификаты</p>
+                  <p class="hero-cert-lead">идеальный подарок</p>
+                </div>
+                <span class="hero-cert-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </div>
+            </a>
+          </aside>
         </div>
       </div>
+    </section>
 
-      <aside class="hero-aside" aria-label="Подборки">
-        <a class="hero-card" href="suits.html">
-          <div class="hero-card-media">
-            <img
-              src="img/XXXL%20(4).webp"
-              alt="Костюмы и смокинги ERSAVAGE"
-              width="1280"
-              height="720"
-              loading="lazy"
-              decoding="async"
-            >
-          </div>
-          <div class="hero-card-body">
-            <div class="hero-card-text">
-              <p class="hero-card-eyebrow">Каталог</p>
-              <p class="hero-card-title">Костюмы<br>и смокинги</p>
-            </div>
-            <span class="hero-card-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M5 12h13M12 5.5l6.5 6.5-6.5 6.5"/></svg>
-            </span>
-          </div>
-        </a>
-
-        <a class="hero-card hero-card--dark" href="sales.html">
-          <span class="hero-card-frame" aria-hidden="true"></span>
-          <div class="hero-gift" aria-hidden="true">
-            <div class="hero-gift-card">
-              <svg class="hero-gift-mark" viewBox="0 0 1938 1967" focusable="false">
-                <path d="M1843.62 657.174V93.6147H93.6172V1072.43M93.6172 1309.72V1873.28H1843.62V983.445H508.871M508.871 983.445V1487.68H1487.68M508.871 983.445V508.869H1487.68" fill="none" stroke="currentColor" stroke-width="187.229"/>
-              </svg>
-              <span class="hero-gift-brand">ERSAVAGE</span>
-              <span class="hero-gift-type">Gift Card</span>
-              <span class="hero-gift-no">•••• •••• 2026</span>
-            </div>
-          </div>
-          <div class="hero-card-body">
-            <div class="hero-card-text">
-              <p class="hero-card-eyebrow">Подарочный сертификат</p>
-              <p class="hero-card-title">Идеальный<br>подарок</p>
-            </div>
-            <span class="hero-card-arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M5 12h13M12 5.5l6.5 6.5-6.5 6.5"/></svg>
-            </span>
-          </div>
-        </a>
-      </aside>
+    <section class="ticker" aria-label="Бегущая строка">
+      <div class="ticker-track">
+        <span class="ticker-item">ERSAVAGE • НОВАЯ КОЛЛЕКЦИЯ • СОБСТВЕННОЕ ПРОИЗВОДСТВО • ПРИМЕРКА И КОНСУЛЬТАЦИЯ • ДОСТАВКА ПО РОССИИ • ПОДАРОЧНЫЕ СЕРТИФИКАТЫ • КОСТЮМЫ И СМОКИНГИ • НАКОПЛЕНИЕ 5% С ПОКУПОК •</span>
 
       </div>
     </section>
@@ -1425,5 +1477,11 @@
   </footer>
 
   <script src="js/main.js"></script>
+
+<script>
+window.addEventListener('load', function () {
+  document.getElementById('siteHeader').classList.add('is-scrolled');
+});
+</script>
 </body>
 </html>

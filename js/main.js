@@ -6,50 +6,24 @@
   const viewport = root.querySelector("[data-hero-viewport]");
   const prevBtn = root.querySelector("[data-hero-prev]");
   const nextBtn = root.querySelector("[data-hero-next]");
-  const footPrimary = root.querySelector("[data-hero-foot-primary]");
-  const footSecondary = root.querySelector("[data-hero-foot-secondary]");
-  const counter = root.querySelector("[data-hero-counter]");
-  const progressFill = root.querySelector("[data-hero-progress-fill]");
-  const dots = [...root.querySelectorAll("[data-hero-dot]")];
   const total = slides.length;
   if (!total) return;
 
-  const AUTOPLAY_MS = 6000;
+  const AUTOPLAY_MS = 7000;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let index = 0;
   let autoplayId = null;
   let isPaused = false;
-
-  const pad2 = (n) => String(n).padStart(2, "0");
 
   const apply = () => {
     slides.forEach((slide, j) => {
       const active = j === index;
       slide.classList.toggle("is-active", active);
       slide.setAttribute("aria-hidden", active ? "false" : "true");
+      slide.querySelectorAll("a").forEach((link) => {
+        link.tabIndex = active ? 0 : -1;
+      });
     });
-    const activeSlide = slides[index];
-    if (footPrimary) footPrimary.textContent = activeSlide.dataset.footPrimary || "";
-    if (footSecondary) footSecondary.textContent = activeSlide.dataset.footSecondary || "";
-    if (counter) counter.textContent = `${pad2(index + 1)} — ${pad2(total)}`;
-    dots.forEach((dot, j) => {
-      const on = j === index;
-      dot.classList.toggle("is-active", on);
-      dot.setAttribute("aria-selected", on ? "true" : "false");
-    });
-  };
-
-  const restartProgress = () => {
-    if (!progressFill || reducedMotion) return;
-    progressFill.classList.remove("is-running", "is-paused");
-    progressFill.style.setProperty("--hero-autoplay-duration", `${AUTOPLAY_MS}ms`);
-    void progressFill.offsetWidth;
-    progressFill.classList.add("is-running");
-    if (isPaused) progressFill.classList.add("is-paused");
-  };
-
-  const stopProgress = () => {
-    progressFill?.classList.remove("is-running", "is-paused");
   };
 
   const clearAutoplay = () => {
@@ -60,7 +34,6 @@
   const scheduleAutoplay = () => {
     if (reducedMotion || total <= 1) return;
     clearAutoplay();
-    restartProgress();
     autoplayId = window.setInterval(() => {
       if (!isPaused) go(1);
     }, AUTOPLAY_MS);
@@ -68,12 +41,10 @@
 
   const pauseAutoplay = () => {
     isPaused = true;
-    progressFill?.classList.add("is-paused");
   };
 
   const resumeAutoplay = () => {
     isPaused = false;
-    progressFill?.classList.remove("is-paused");
   };
 
   const go = (delta) => {
@@ -85,17 +56,6 @@
   prevBtn?.addEventListener("click", () => go(-1));
   nextBtn?.addEventListener("click", () => go(1));
 
-  dots.forEach((dot) => {
-    dot.addEventListener("click", () => {
-      const j = Number(dot.dataset.heroDot);
-      if (Number.isFinite(j) && j >= 0 && j < total) {
-        index = j;
-        apply();
-        scheduleAutoplay();
-      }
-    });
-  });
-
   viewport?.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft") {
       event.preventDefault();
@@ -105,6 +65,26 @@
       go(1);
     }
   });
+
+  let swipeStartX = null;
+  viewport?.addEventListener(
+    "touchstart",
+    (event) => {
+      swipeStartX = event.touches[0].clientX;
+    },
+    { passive: true }
+  );
+
+  viewport?.addEventListener(
+    "touchend",
+    (event) => {
+      if (swipeStartX === null) return;
+      const delta = event.changedTouches[0].clientX - swipeStartX;
+      swipeStartX = null;
+      if (Math.abs(delta) > 50) go(delta < 0 ? 1 : -1);
+    },
+    { passive: true }
+  );
 
   root.addEventListener("mouseenter", pauseAutoplay);
   root.addEventListener("mouseleave", resumeAutoplay);
@@ -117,7 +97,6 @@
     if (document.hidden) {
       pauseAutoplay();
       clearAutoplay();
-      stopProgress();
       return;
     }
     resumeAutoplay();
@@ -158,9 +137,9 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 })();
 
 (() => {
-  const menuBtn = document.querySelector("[data-header-menu]");
+  const menuBtns = [...document.querySelectorAll("[data-header-menu]")];
   const drawer = document.getElementById("headerMobileDrawer");
-  if (!menuBtn || !drawer) return;
+  if (!menuBtns.length || !drawer) return;
 
   const panel = drawer.querySelector(".header-mobile-drawer-panel");
   const closeTriggers = drawer.querySelectorAll("[data-header-menu-close]");
@@ -177,7 +156,7 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
   const setOpen = (open) => {
     drawer.classList.toggle("is-open", open);
     drawer.setAttribute("aria-hidden", open ? "false" : "true");
-    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    menuBtns.forEach((btn) => btn.setAttribute("aria-expanded", open ? "true" : "false"));
     document.body.classList.toggle("header-drawer-open", open);
 
     if (open) {
@@ -190,8 +169,10 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
     lastFocus = null;
   };
 
-  menuBtn.addEventListener("click", () => {
-    setOpen(!drawer.classList.contains("is-open"));
+  menuBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      setOpen(!drawer.classList.contains("is-open"));
+    });
   });
 
   closeTriggers.forEach((trigger) => {
@@ -226,30 +207,6 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
       event.preventDefault();
       first.focus();
     }
-  });
-})();
-
-(() => {
-  const searchToggle = document.querySelector(".header-search-toggle");
-  const searchWrap = document.querySelector(".header-search-wrap");
-  const searchInput = document.getElementById("headerSearchInput");
-  if (!searchToggle || !searchWrap) return;
-
-  const mobileQuery = window.matchMedia("(max-width: 720px)");
-
-  const setSearchOpen = (open) => {
-    searchWrap.classList.toggle("is-open", open);
-    searchToggle.setAttribute("aria-expanded", open ? "true" : "false");
-    if (open) searchInput?.focus();
-  };
-
-  searchToggle.addEventListener("click", () => {
-    if (!mobileQuery.matches) return;
-    setSearchOpen(!searchWrap.classList.contains("is-open"));
-  });
-
-  mobileQuery.addEventListener("change", (event) => {
-    if (!event.matches) setSearchOpen(false);
   });
 })();
 

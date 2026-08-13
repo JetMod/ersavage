@@ -1,0 +1,385 @@
+/* =========================================================
+   SALES PAGE — sales.css
+   Depends on: tokens.css (via style.css), style.css (.na-card, .na-badge, etc.)
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Sales Hero
+   --------------------------------------------------------- */
+.sales-hero {
+  background: var(--promo-bg);
+  border-radius: var(--radius-lg);
+  margin: 32px 0 0;
+  padding: clamp(48px, 7vw, 88px) clamp(28px, 5vw, 72px);
+  position: relative;
+  overflow: hidden;
+}
+
+.sales-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 90% 50%, rgba(166, 139, 75, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(196, 30, 36, 0.07) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.sales-hero-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.sales-hero-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.sales-hero-eyebrow {
+  font-family: var(--font-ui, Inter, sans-serif);
+  font-size: var(--eyebrow-size, 0.72rem);
+  font-weight: 600;
+  letter-spacing: var(--eyebrow-tracking, 0.14em);
+  text-transform: uppercase;
+  color: var(--gold, #a68b4b);
+  margin: 0 0 14px;
+}
+
+.sales-hero-title {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.04;
+  color: #f0e8d8;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.sales-hero-title .sales-hero-accent {
+  color: var(--gold, #a68b4b);
+}
+
+.sales-hero-desc {
+  font-family: var(--font-ui, Inter, sans-serif);
+  font-size: 0.9375rem;
+  color: var(--promo-text, #e8e0d0);
+  opacity: 0.75;
+  margin: 0 0 28px;
+  max-width: 480px;
+  line-height: 1.65;
+}
+
+.sales-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--gold, #a68b4b);
+  color: #fff;
+  font-family: var(--font-ui, Inter, sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--radius-sm, 8px);
+  border: none;
+  cursor: pointer;
+  transition: background 0.22s, transform 0.18s;
+}
+
+.sales-hero-cta:hover {
+  background: #8e7540;
+  transform: translateY(-1px);
+}
+
+.sales-hero-badge-wrap {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.sales-hero-badge {
+  width: clamp(120px, 16vw, 168px);
+  height: clamp(120px, 16vw, 168px);
+  border-radius: 50%;
+  background: rgba(196, 30, 36, 0.92);
+  border: 2px solid rgba(196, 30, 36, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(196, 30, 36, 0.35);
+}
+
+.sales-hero-badge-pct {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.sales-hero-badge-label {
+  font-family: var(--font-ui, Inter, sans-serif);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 3px;
+}
+
+/* Decorative large text background */
+.sales-hero-bg-text {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: clamp(80px, 14vw, 160px);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.035);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+
+/* ---------------------------------------------------------
+   Promo Banners
+   --------------------------------------------------------- */
+.sales-promo-banners {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0 0;
+}
+
+.sales-promo-banner {
+  position: relative;
+  border-radius: var(--radius-md, 12px);
+  overflow: hidden;
+  min-height: 220px;
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+  transition: transform 0.26s;
+}
+
+.sales-promo-banner:hover {
+  transform: translateY(-3px);
+}
+
+.sales-promo-banner-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+
+.sales-promo-banner:hover .sales-promo-banner-bg {
+  transform: scale(1.04);
+}
+
+.sales-promo-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    170deg,
+    rgba(20, 18, 16, 0.1) 0%,
+    rgba(20, 18, 16, 0.72) 100%
+  );
+}
+
+.sales-promo-banner-body {
+  position: relative;
+  padding: 24px 28px;
+  width: 100%;
+}
+
+.sales-promo-banner-eyebrow {
+  font-family: var(--font-ui, Inter, sans-serif);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold, #a68b4b);
+  margin: 0 0 6px;
+  display: block;
+}
+
+.sales-promo-banner-title {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  color: #f0e8d8;
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+.sales-promo-banner-discount {
+  display: inline-block;
+  font-family: var(--font-ui, Inter, sans-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 4px 12px;
+  border-radius: 20px;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.sales-promo-banner-discount--red {
+  background: rgba(196, 30, 36, 0.9);
+}
+
+.sales-promo-banner-discount--gold {
+  background: rgba(166, 139, 75, 0.9);
+}
+
+.sales-promo-banner-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-ui, Inter, sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+.sales-promo-banner-link svg {
+  transition: transform 0.18s;
+}
+
+.sales-promo-banner:hover .sales-promo-banner-link {
+  color: var(--gold, #a68b4b);
+}
+
+.sales-promo-banner:hover .sales-promo-banner-link svg {
+  transform: translateX(3px);
+}
+
+/* ---------------------------------------------------------
+   Sale badge variant
+   --------------------------------------------------------- */
+.na-badge--sale {
+  background: #c41e24;
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   Sales subcategory tabs strip
+   --------------------------------------------------------- */
+.sales-cats {
+  display: flex;
+  gap: 10px;
+  padding: 28px 0 0;
+  flex-wrap: wrap;
+}
+
+/* ---------------------------------------------------------
+   Sale countdown strip
+   --------------------------------------------------------- */
+.sales-countdown-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 18px 28px;
+  background: var(--espresso, #3b2b24);
+  border-radius: var(--radius-md, 12px);
+  margin: 16px 0 0;
+  flex-wrap: wrap;
+}
+
+.sales-countdown-label {
+  font-family: var(--font-ui, Inter, sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--promo-text, #e8e0d0);
+  opacity: 0.8;
+}
+
+.sales-countdown-timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sales-countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 52px;
+}
+
+.sales-countdown-num {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gold, #a68b4b);
+}
+
+.sales-countdown-cap {
+  font-family: var(--font-ui, Inter, sans-serif);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(232, 224, 208, 0.55);
+  margin-top: 3px;
+}
+
+.sales-countdown-sep {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold, #a68b4b);
+  opacity: 0.6;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 640px) {
+  .sales-promo-banners {
+    grid-template-columns: 1fr;
+  }
+
+  .sales-hero-badge-wrap {
+    display: none;
+  }
+
+  .sales-hero {
+    padding: 40px 24px;
+  }
+
+  .sales-countdown-strip {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .sales-hero-bg-text {
+    display: none;
+  }
+}

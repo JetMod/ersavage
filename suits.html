@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Костюмы — ERSAVAGE</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="apple-touch-icon" href="img/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/catalog.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+
+  <!-- ====================================================
+       HEADER
+       ==================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-utility">
+      <div class="container header-utility-inner">
+        <div class="header-city-picker-wrap" id="cityPickerWrap">
+          <button type="button" class="header-city-picker" id="cityPickerBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Выбрать город">
+            <span class="header-utility-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-6-5.2-6-10a6 6 0 1112 0c0 4.8-6 10-6 10z"></path>
+                <circle cx="12" cy="11" r="2.25" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+              </svg>
+            </span>
+            <span class="header-city-label">Ваш город: <span class="header-city-name" id="cityPickerName">Симферополь</span></span>
+            <span class="header-city-chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="12" height="12" focusable="false">
+                <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"></path>
+              </svg>
+            </span>
+          </button>
+          <ul class="header-city-dropdown" id="cityPickerDropdown" role="listbox" aria-label="Выберите город">
+            <li role="option" aria-selected="true"  data-city="Симферополь">Симферополь</li>
+            <li role="option" aria-selected="false" data-city="Евпатория">Евпатория</li>
+            <li role="option" aria-selected="false" data-city="Севастополь">Севастополь</li>
+            <li role="option" aria-selected="false" data-city="Старый Крым">Старый Крым</li>
+          </ul>
+        </div>
+        <nav class="header-utility-nav" aria-label="Информация о компании">
+          <a class="header-utility-nav-link" href="index.html#about">О компании</a>
+          <a class="header-utility-nav-link" href="sales.html">Услуги и акции</a>
+          <a class="header-utility-nav-link" href="#">Доставка и оплата</a>
+          <a class="header-utility-nav-link" href="#">Блог</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container header-main-inner">
+
+        <a class="header-logo" href="index.html" aria-label="ERSAVAGE — на главную">
+          <img src="img/logo.jpg" alt="ERSAVAGE" width="48" height="48">
+        </a>
+
+        <div class="header-contact">
+          <a class="header-contact-phone" href="tel:+79783111101">+7 (978) 311-11-01</a>
+          <span class="header-contact-hours">ежедневно с 10:00 до 20:00</span>
+        </div>
+
+        <form class="header-search" role="search" action="#" method="get">
+          <span class="header-search-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false">
+              <circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+              <path d="M16 16L21 21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <label class="sr-only" for="headerSearchInput">Поиск по каталогу</label>
+          <input id="headerSearchInput" type="search" name="q" placeholder="Например, костюм" autocomplete="off">
+        </form>
+
+        <div class="header-actions">
+          <button type="button" class="header-action header-wishlist-btn" aria-label="Избранное">
+            <span class="wishlist-badge" aria-hidden="true"></span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+          <a href="#" class="header-action header-cart-link" aria-label="Корзина, 3 товара">
+            <span class="cart-badge">3</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 7h15l-1.5 9h-12L6 7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+              <path d="M6 7H4V5h2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+              <circle cx="10.5" cy="20" r="1.5" fill="currentColor"></circle>
+              <circle cx="17.5" cy="20" r="1.5" fill="currentColor"></circle>
+            </svg>
+          </a>
+          <a href="#" class="header-action header-account-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="8" r="3.25" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+              <path d="M6.5 20.5v-.5a5.5 5.5 0 0111 0v.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            </svg>
+            <span>Личный кабинет</span>
+          </a>
+          <button
+            type="button"
+            class="header-action header-menu-btn"
+            data-header-menu
+            aria-expanded="false"
+            aria-controls="headerMobileDrawer"
+            aria-label="Открыть меню"
+          >
+            <svg class="header-menu-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M5 7h14M5 12h14M5 17h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </svg>
+            <svg class="header-menu-close-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="header-subnav" aria-label="Категории каталога">
+      <div class="header-subnav-bg" aria-hidden="true"></div>
+      <div class="container header-subnav-inner">
+        <button type="button" class="header-catalog-btn" data-header-menu aria-label="Открыть каталог">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 7h14M5 12h14M5 17h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+          </svg>
+          Каталог
+        </button>
+        <nav class="subnav-links" aria-label="Направления">
+          <a href="sales.html">Акции</a>
+          <a href="suits.html" aria-current="page">Костюмы</a>
+          <a href="#">Рубашки</a>
+          <a href="#">Джинсы</a>
+          <a href="#">Футболки</a>
+          <a href="#">Обувь</a>
+          <a href="#">Аксессуары</a>
+        </nav>
+      </div>
+    </div>
+
+    <div
+      class="header-mobile-drawer"
+      id="headerMobileDrawer"
+      aria-hidden="true"
+      aria-label="Навигация по сайту"
+    >
+      <button type="button" class="header-mobile-drawer-backdrop" data-header-menu-close aria-label="Закрыть меню"></button>
+      <div class="header-mobile-drawer-panel" role="dialog" aria-modal="true" aria-label="Меню">
+        <div class="header-mobile-drawer-head">
+          <p class="header-mobile-drawer-title">Меню</p>
+          <button type="button" class="header-mobile-drawer-close" data-header-menu-close aria-label="Закрыть меню">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </svg>
+          </button>
+        </div>
+
+        <a href="index.html#new" class="header-mobile-catalog-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 7h14M5 12h14M5 17h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+          </svg>
+          Каталог
+        </a>
+
+        <nav class="header-mobile-nav" aria-label="Категории">
+          <a href="sales.html">Акции</a>
+          <a href="#">Новинки</a>
+          <a href="suits.html" aria-current="page">Костюмы</a>
+          <a href="#">Рубашки</a>
+          <a href="#">Джинсы</a>
+          <a href="#">Футболки</a>
+          <a href="#">Аксессуары</a>
+        </nav>
+
+        <div class="header-mobile-divider" aria-hidden="true"></div>
+
+        <nav class="header-mobile-nav header-mobile-nav--utility" aria-label="Сервисная навигация">
+          <a href="index.html#about">О компании</a>
+          <a href="#">Услуги и акции</a>
+          <a href="#">Доставка и оплата</a>
+          <a href="#">Блог</a>
+        </nav>
+
+        <div class="header-mobile-footer">
+          <a class="header-mobile-phone" href="tel:+79783111101">+7 (978) 311-11-01</a>
+          <p class="header-mobile-phone-hours">ежедневно с 10:00 до 20:00</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====================================================
+       MAIN
+       ==================================================== -->
+  <main id="main-content">
+
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <nav class="catalog-breadcrumb" aria-label="Хлебные крошки">
+        <ol class="catalog-breadcrumb-list">
+          <li><a href="index.html">Главная</a></li>
+          <li aria-hidden="true"><span class="catalog-breadcrumb-sep">›</span></li>
+          <li><span aria-current="page">Костюмы</span></li>
+        </ol>
+      </nav>
+
+      <!-- Category Hero -->
+      <section class="catalog-hero" aria-labelledby="catalogTitle">
+        <div class="catalog-hero-inner">
+          <div class="catalog-hero-text">
+            <p class="catalog-hero-eyebrow">Коллекция 2026</p>
+            <h1 class="catalog-hero-title" id="catalogTitle">Костюмы</h1>
+            <p class="catalog-hero-desc">Двойки, тройки и смокинги ручной работы — от классики до современных силуэтов. Собственное производство в Крыму с 2010 года.</p>
+          </div>
+          <div class="catalog-hero-meta">
+            <p class="catalog-hero-count" id="catalogCount">48 моделей</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Subcategory tabs -->
+      <div style="display:flex;gap:10px;padding:24px 0 0;flex-wrap:wrap;" role="group" aria-label="Подкатегории">
+        <button type="button" class="catalog-size-btn is-active" data-subcat="all" style="padding:8px 18px;min-width:unset;">Все</button>
+        <button type="button" class="catalog-size-btn" data-subcat="dvubortnye" style="padding:8px 18px;min-width:unset;">Двубортные</button>
+        <button type="button" class="catalog-size-btn" data-subcat="trojki" style="padding:8px 18px;min-width:unset;">Тройки</button>
+        <button type="button" class="catalog-size-btn" data-subcat="smokings" style="padding:8px 18px;min-width:unset;">Смокинги</button>
+        <button type="button" class="catalog-size-btn" data-subcat="linen" style="padding:8px 18px;min-width:unset;">Льняные</button>
+        <button type="button" class="catalog-size-btn" data-subcat="wool" style="padding:8px 18px;min-width:unset;">Шерстяные</button>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="catalog-toolbar">
+        <div class="catalog-toolbar-left">
+          <button type="button" class="catalog-filter-toggle" id="catalogFilterToggle" aria-expanded="false" aria-controls="catalogSidebar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="4" y1="6" x2="20" y2="6"></line>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+              <line x1="11" y1="18" x2="13" y2="18"></line>
+            </svg>
+            Фильтры
+          </button>
+
+          <div class="catalog-active-filters" id="catalogActiveTags">
+            <!-- Active filter tags injected here by JS -->
+          </div>
+        </div>
+
+        <div class="catalog-toolbar-right">
+          <label class="catalog-sort-label" for="catalogSort">Сортировка:</label>
+          <select class="catalog-sort-select" id="catalogSort" aria-label="Сортировка товаров">
+            <option value="popular">Популярные</option>
+            <option value="new">Новинки</option>
+            <option value="price-asc">По возрастанию цены</option>
+            <option value="price-desc">По убыванию цены</option>
+          </select>
+        </div>
+      </div>
+
+    </div><!-- /container -->
+
+    <!-- Layout: sidebar + grid -->
+    <div class="container" style="padding-top:0;">
+      <div class="catalog-layout">
+
+        <!-- Sidebar Filters -->
+        <aside class="catalog-sidebar" id="catalogSidebar" aria-label="Фильтры">
+          <div class="catalog-sidebar-panel">
+            <!-- Close button (mobile only) -->
+            <button type="button" class="catalog-sidebar-close" id="catalogSidebarClose" aria-label="Закрыть фильтры">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18"></path>
+              </svg>
+            </button>
+
+            <div class="catalog-sidebar-head">
+              <h2 class="catalog-sidebar-title">Фильтры</h2>
+              <button type="button" class="catalog-sidebar-reset" id="catalogResetFilters">Сбросить</button>
+            </div>
+
+            <!-- Тип костюма -->
+            <div class="catalog-filter-group">
+              <button type="button" class="catalog-filter-group-toggle" aria-expanded="true" aria-controls="filterType">
+                Тип костюма
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </button>
+              <div class="catalog-filter-group-body" id="filterType">
+                <label class="catalog-check-label">
+                  <input type="checkbox" name="type" value="dvubortnye"> Двубортные
+                  <span class="catalog-check-count">12</span>
+                </label>
+                <label class="catalog-check-label">
+                  <input type="checkbox" name="type" value="odnobort"> Однобортные
+                  <span class="catalog-check-count">16</span>
+                </label>
+                <label class="catalog-check-label">
+                  <input type="checkbox" name="type" value="trojki"> Тройки
+                  <span class="catalog-check-count">8</span>
+                </label>
+                <label class="catalog-check-label">
+                  <input type="checkbox" name="type" value="smokings"> Смокинги
+                  <span class="catalog-check-count">6</span>
+                </label>
+                <label class="catalog-check-label">
+                  <input type="checkbox" name="type" value="klassika"> Классика
+                  <span class="catalog-check-count">6</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Цвет -->
+            <div class="catalog-filter-group">
+              <button type="button" class="catalog-filter-group-toggle" aria-expanded="true" aria-controls="filterColor">
+                Цвет
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </button>
+              <div class="catalog-filter-group-body" id="filterColor">
+                <div class="catalog-color-options">
+                  <button type="button" class="catalog-color-swatch" style="background:#1a1612;" title="Чёрный" aria-label="Чёрный"></button>
+                  <button type="button" class="catalog-color-swatch" style="background:#3b3028;" title="Тёмно-коричневый" aria-label="Тёмно-коричневый"></button>
+                  <button type="button" class="catalog-color-swatch" style="background:#5c4e3d;" title="Коричневый" aria-label="Коричневый"></button>
+                  <button type="button" class="catalog-color-swatch" style="background:#6e6a64;" title="Серый" aria-label="Серый"></button>
+                  <button type="button" class="catalog-color-swatch" style="background:#b0a896;" title="Светло-серый" aria-label="Светло-серый"></button>
+                  <button type="button" class="catalog-color-swatch" style="background:#e8dfc8;" title="Бежевый" aria-label="Бежевый"></button>
+                  <button type="button" class="catalog-color-swatch" style="background:#d6cbb8;" title="Кремовый" aria-label="Кремовый"></button>
+                  <button type="button" class="catalog-color-swatch" style="background:#2a3d52;" title="Синий" aria-label="Синий"></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Размер -->
+            <div class="catalog-filter-group">
+              <button type="button" class="catalog-filter-group-toggle" aria-expanded="true" aria-controls="filterSize">
+                Размер
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </button>
+              <div class="catalog-filter-group-body" id="filterSize">
+                <div class="catalog-size-options">
+                  <button type="button" class="catalog-size-btn" data-size="44">44</button>
+                  <button type="button" class="catalog-size-btn" data-size="46">46</button>
+                  <button type="button" class="catalog-size-btn" data-size="48">48</button>
+                  <button type="button" class="catalog-size-btn" data-size="50">50</button>
+                  <button type="button" class="catalog-size-btn" data-size="52">52</button>
+                  <button type="button" class="catalog-size-btn" data-size="54">54</button>
+                  <button type="button" class="catalog-size-btn" data-size="56">56</button>
+                  <button type="button" class="catalog-size-btn" data-size="58">58</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Цена -->
+            <div class="catalog-filter-group">
+              <button type="button" class="catalog-filter-group-toggle" aria-expanded="true" aria-controls="filterPrice">
+                Цена, ₽
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </button>
+              <div class="catalog-filter-group-body" id="filterPrice">
+                <div class="catalog-price-inputs">
+                  <input type="number" class="catalog-price-input" id="priceFrom" placeholder="От" min="0" value="0">
+                  <span class="catalog-price-sep">—</span>
+                  <input type="number" class="catalog-price-input" id="priceTo" placeholder="До" min="0" value="150000">
+                </div>
+                <button type="button" class="catalog-price-apply" id="priceApply">Применить</button>
+              </div>
+            </div>
+
+            <!-- Материал -->
+            <div class="catalog-filter-group">
+              <button type="button" class="catalog-filter-group-toggle" aria-expanded="false" aria-controls="filterMaterial">
+                Состав
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </button>
+              <div class="catalog-filter-group-body" id="filterMaterial" hidden>
+                <label class="catalog-check-label">
+                  <input type="checkbox" name="material" value="wool"> Шерсть
+                  <span class="catalog-check-count">18</span>
+                </label>
+                <label class="catalog-check-label">
+                  <input type="checkbox" name="material" value="linen"> Лён
+                  <span class="catalog-check-count">10</span>
+                </label>
+                <label class="catalog-check-label">
+                  <input type="checkbox" name="material" value="viscose"> Вискоза
+                  <span class="catalog-check-count">9</span>
+                </label>
+                <label class="catalog-check-label">
+                  <input type="checkbox" name="material" value="cashmere"> Кашемир
+                  <span class="catalog-check-count">5</span>
+                </label>
+                <label class="catalog-check-label">
+                  <input type="checkbox" name="material" value="cotton"> Хлопок
+                  <span class="catalog-check-count">6</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+        <!-- Product Grid -->
+        <section class="catalog-grid-area" aria-labelledby="catalogTitle">
+
+          <div class="catalog-grid" id="catalogGrid">
+
+            <!-- Card 1: Костюм-тройка -->
+            <article class="na-card reveal">
+              <div class="na-card-img">
+                <a href="product.html" tabindex="-1" aria-hidden="true">
+                  <img src="img/XXXL.webp" alt="Костюм-тройка ERSAVAGE" loading="lazy">
+                </a>
+                <span class="na-badge na-badge--hit">Бестселлер</span>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="na-card-cta-bar">
+                  <button type="button" class="na-cart-btn-overlay">В корзину</button>
+                </div>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title"><a href="product.html">Костюм-тройка</a></h3>
+                <p class="na-card-subtitle" style="font-size:.78rem;color:var(--ink-muted);margin:2px 0 6px;font-family:Inter,sans-serif;">Шерсть 70% · Вискоза 30%</p>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">47 900 ₽</span>
+                  <span class="na-price-old">55 000 ₽</span>
+                  <span class="na-price-discount">−13%</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2: Двубортный костюм -->
+            <article class="na-card reveal">
+              <div class="na-card-img">
+                <a href="product.html" tabindex="-1" aria-hidden="true">
+                  <img src="img/XXXL%20(1).webp" alt="Двубортный костюм ERSAVAGE" loading="lazy">
+                </a>
+                <span class="na-badge na-badge--new">Новинка</span>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="na-card-cta-bar">
+                  <button type="button" class="na-cart-btn-overlay">В корзину</button>
+                </div>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title"><a href="product.html">Двубортный костюм</a></h3>
+                <p class="na-card-subtitle" style="font-size:.78rem;color:var(--ink-muted);margin:2px 0 6px;font-family:Inter,sans-serif;">Шерсть 100%</p>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">54 500 ₽</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3: Льняной костюм -->
+            <article class="na-card reveal">
+              <div class="na-card-img">
+                <a href="product.html" tabindex="-1" aria-hidden="true">
+                  <img src="img/XXXL%20(2).webp" alt="Льняной костюм ERSAVAGE" loading="lazy">
+                </a>
+                <span class="na-badge na-badge--new">Новинка</span>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="na-card-cta-bar">
+                  <button type="button" class="na-cart-btn-overlay">В корзину</button>
+                </div>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title"><a href="product.html">Льняной костюм</a></h3>
+                <p class="na-card-subtitle" style="font-size:.78rem;color:var(--ink-muted);margin:2px 0 6px;font-family:Inter,sans-serif;">Лён 100%</p>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">28 900 ₽</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 4: Костюм-двойка классика -->
+            <article class="na-card reveal">
+              <div class="na-card-img">
+                <a href="product.html" tabindex="-1" aria-hidden="true">
+                  <img src="img/XXXL%20(3).webp" alt="Костюм-двойка классика ERSAVAGE" loading="lazy">
+                </a>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="na-card-cta-bar">
+                  <button type="button" class="na-cart-btn-overlay">В корзину</button>
+                </div>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title"><a href="product.html">Костюм-двойка классика</a></h3>
+                <p class="na-card-subtitle" style="font-size:.78rem;color:var(--ink-muted);margin:2px 0 6px;font-family:Inter,sans-serif;">Шерсть 60% · Полиэстер 40%</p>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">39 900 ₽</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 5: Смокинг -->
+            <article class="na-card reveal">
+              <div class="na-card-img">
+                <a href="product.html" tabindex="-1" aria-hidden="true">
+                  <img src="img/XXXL%20(4).webp" alt="Смокинг ERSAVAGE" loading="lazy">
+                </a>
+                <span class="na-badge na-badge--limited">Limited</span>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="na-card-cta-bar">
+                  <button type="button" class="na-cart-btn-overlay">В корзину</button>
+                </div>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title"><a href="product.html">Смокинг классический</a></h3>
+                <p class="na-card-subtitle" style="font-size:.78rem;color:var(--ink-muted);margin:2px 0 6px;font-family:Inter,sans-serif;">Шерсть 80% · Шёлк 20%</p>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">68 000 ₽</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 6: Костюм в клетку -->
+            <article class="na-card reveal">
+              <div class="na-card-img">
+                <a href="product.html" tabindex="-1" aria-hidden="true">
+                  <img src="img/XXXL%20(5).webp" alt="Костюм в клетку ERSAVAGE" loading="lazy">
+                </a>
+                <span class="na-badge na-badge--new">Новинка</span>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="na-card-cta-bar">
+                  <button type="button" class="na-cart-btn-overlay">В корзину</button>
+                </div>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title"><a href="product.html">Костюм в клетку</a></h3>
+                <p class="na-card-subtitle" style="font-size:.78rem;color:var(--ink-muted);margin:2px 0 6px;font-family:Inter,sans-serif;">Шерсть 75% · Вискоза 25%</p>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">43 500 ₽</span>
+                  <span class="na-price-old">49 000 ₽</span>
+                  <span class="na-price-discount">−11%</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 7: Шерстяной костюм -->
+            <article class="na-card reveal">
+              <div class="na-card-img">
+                <a href="product.html" tabindex="-1" aria-hidden="true">
+                  <img src="img/XXXL%20(6).webp" alt="Шерстяной костюм ERSAVAGE" loading="lazy">
+                </a>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="na-card-cta-bar">
+                  <button type="button" class="na-cart-btn-overlay">В корзину</button>
+                </div>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title"><a href="product.html">Шерстяной костюм</a></h3>
+                <p class="na-card-subtitle" style="font-size:.78rem;color:var(--ink-muted);margin:2px 0 6px;font-family:Inter,sans-serif;">Шерсть 100%</p>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">52 000 ₽</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 8: Летний костюм -->
+            <article class="na-card reveal">
+              <div class="na-card-img">
+                <a href="product.html" tabindex="-1" aria-hidden="true">
+                  <img src="img/XXXL%20(7).webp" alt="Летний костюм ERSAVAGE" loading="lazy">
+                </a>
+                <span class="na-badge na-badge--new">Новинка</span>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="na-card-cta-bar">
+                  <button type="button" class="na-cart-btn-overlay">В корзину</button>
+                </div>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title"><a href="product.html">Летний костюм</a></h3>
+                <p class="na-card-subtitle" style="font-size:.78rem;color:var(--ink-muted);margin:2px 0 6px;font-family:Inter,sans-serif;">Лён 55% · Хлопок 45%</p>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">24 900 ₽</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 9: Костюм slim-fit -->
+            <article class="na-card reveal">
+              <div class="na-card-img">
+                <a href="product.html" tabindex="-1" aria-hidden="true">
+                  <img src="img/XXXL%20(8).webp" alt="Костюм slim-fit ERSAVAGE" loading="lazy">
+                </a>
+                <span class="na-badge na-badge--hit">Бестселлер</span>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="na-card-cta-bar">
+                  <button type="button" class="na-cart-btn-overlay">В корзину</button>
+                </div>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title"><a href="product.html">Костюм slim-fit</a></h3>
+                <p class="na-card-subtitle" style="font-size:.78rem;color:var(--ink-muted);margin:2px 0 6px;font-family:Inter,sans-serif;">Шерсть 65% · Полиэстер 35%</p>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">36 500 ₽</span>
+                  <span class="na-price-old">42 000 ₽</span>
+                  <span class="na-price-discount">−13%</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 10: Костюм в полоску -->
+            <article class="na-card reveal">
+              <div class="na-card-img">
+                <a href="product.html" tabindex="-1" aria-hidden="true">
+                  <img src="img/XXXL%20(9).webp" alt="Костюм в полоску ERSAVAGE" loading="lazy">
+                </a>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="na-card-cta-bar">
+                  <button type="button" class="na-cart-btn-overlay">В корзину</button>
+                </div>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title"><a href="product.html">Костюм в полоску</a></h3>
+                <p class="na-card-subtitle" style="font-size:.78rem;color:var(--ink-muted);margin:2px 0 6px;font-family:Inter,sans-serif;">Шерсть 70% · Вискоза 30%</p>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">45 900 ₽</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 11: Кашемировый костюм -->
+            <article class="na-card reveal">
+              <div class="na-card-img">
+                <a href="product.html" tabindex="-1" aria-hidden="true">
+                  <img src="img/XXXL%20(10).webp" alt="Кашемировый костюм ERSAVAGE" loading="lazy">
+                </a>
+                <span class="na-badge na-badge--limited">Limited</span>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="na-card-cta-bar">
+                  <button type="button" class="na-cart-btn-overlay">В корзину</button>
+                </div>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title"><a href="product.html">Кашемировый костюм</a></h3>
+                <p class="na-card-subtitle" style="font-size:.78rem;color:var(--ink-muted);margin:2px 0 6px;font-family:Inter,sans-serif;">Кашемир 50% · Шерсть 50%</p>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">89 000 ₽</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 12: Свадебный смокинг -->
+            <article class="na-card reveal">
+              <div class="na-card-img">
+                <a href="product.html" tabindex="-1" aria-hidden="true">
+                  <img src="img/XXXL%20(11).webp" alt="Свадебный смокинг ERSAVAGE" loading="lazy">
+                </a>
+                <span class="na-badge na-badge--new">Новинка</span>
+                <button type="button" class="na-wish" aria-label="Добавить в избранное">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21.35z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="na-card-cta-bar">
+                  <button type="button" class="na-cart-btn-overlay">В корзину</button>
+                </div>
+              </div>
+              <div class="na-card-info">
+                <h3 class="na-card-title"><a href="product.html">Свадебный смокинг</a></h3>
+                <p class="na-card-subtitle" style="font-size:.78rem;color:var(--ink-muted);margin:2px 0 6px;font-family:Inter,sans-serif;">Шерсть 85% · Шёлк 15%</p>
+                <div class="na-card-price-row">
+                  <span class="na-price-new">74 500 ₽</span>
+                  <span class="na-price-old">82 000 ₽</span>
+                  <span class="na-price-discount">−9%</span>
+                </div>
+              </div>
+            </article>
+
+          </div><!-- /catalog-grid -->
+
+          <!-- Pagination -->
+          <nav class="catalog-pagination" aria-label="Пагинация">
+            <button type="button" class="catalog-page-btn catalog-page-btn--nav" disabled aria-label="Предыдущая страница">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+              Назад
+            </button>
+            <a href="#" class="catalog-page-btn is-current" aria-current="page" aria-label="Страница 1">1</a>
+            <a href="#" class="catalog-page-btn" aria-label="Страница 2">2</a>
+            <a href="#" class="catalog-page-btn" aria-label="Страница 3">3</a>
+            <span class="catalog-page-dots" aria-hidden="true">…</span>
+            <a href="#" class="catalog-page-btn" aria-label="Страница 6">6</a>
+            <button type="button" class="catalog-page-btn catalog-page-btn--nav" aria-label="Следующая страница">
+              Вперёд
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </nav>
+
+        </section><!-- /catalog-grid-area -->
+
+      </div><!-- /catalog-layout -->
+    </div><!-- /container -->
+
+  </main>
+
+  <!-- ====================================================
+       FOOTER
+       ==================================================== -->
+  <footer class="site-footer" id="footer">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html" aria-label="ERSAVAGE — на главную">
+          <img src="img/logo.svg" alt="" width="28" height="28" aria-hidden="true">
+          <span>ERSAVAGE</span>
+        </a>
+        <div class="footer-social" aria-label="Социальные сети">
+          <a href="#" class="footer-social-link" rel="noopener noreferrer" aria-label="Telegram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 4L11.5 14.5M22 4l-7 16-3.5-7.5L2 9l20-5z"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" rel="noopener noreferrer" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" rel="noopener noreferrer" aria-label="ВКонтакте">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.587-1.496c.598-.186 1.364 1.26 2.175 1.816.616.422 1.084.33 1.084.33l2.175-.03s1.137-.071.598-.964c-.044-.073-.314-.658-1.617-1.862-1.366-1.262-1.183-.528.462-1.616.998-.674 1.396-1.086 1.27-1.262-.116-.163-.833-.12-.833-.12l-2.37.015s-.176-.024-.306.052c-.12.071-.197.234-.197.234s-.353.944-.82 1.748c-.988 1.674-1.384 1.762-1.547 1.658-.376-.24-.282-.966-.282-1.484 0-1.612.244-2.284-.476-2.456-.238-.057-.413-.095-1.023-.101-.782-.008-1.444.003-1.818.188-.252.126-.446.407-.328.423.146.02.477.09.652.33.226.31.218 1.005.218 1.005s.13 1.92-.302 2.158c-.297.163-.704-.169-1.578-1.686-.447-.776-.784-1.634-.784-1.634s-.065-.16-.182-.246c-.141-.103-.338-.136-.338-.136l-2.254.015s-.338.01-.462.155c-.11.13-.008.4-.008.4s1.77 4.14 3.773 6.23c1.836 1.914 3.923 1.787 3.923 1.787h.942z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer-col" aria-label="О магазине">
+        <ul>
+          <li><a href="index.html#about">О магазине</a></li>
+          <li><a href="#">Оплата</a></li>
+          <li><a href="#">Доставка</a></li>
+          <li><a href="#">Возврат</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Каталог — одежда">
+        <ul>
+          <li><a href="#">Пиджаки</a></li>
+          <li><a href="#">Брюки</a></li>
+          <li><a href="#">Рубашки</a></li>
+          <li><a href="#">Трикотаж</a></li>
+          <li><a href="suits.html">Костюмы</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-label="Каталог — верхняя одежда">
+        <ul>
+          <li><a href="#">Куртки</a></li>
+          <li><a href="#">Пальто</a></li>
+          <li><a href="#">Аксессуары</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-contacts">
+        <p class="footer-contacts-label">Контакты</p>
+        <dl class="footer-contacts-list">
+          <div class="footer-contact-row">
+            <dt>Адрес</dt>
+            <dd>Симферополь, просп. Победы, 438А</dd>
+          </div>
+          <div class="footer-contact-row">
+            <dt>Телефон</dt>
+            <dd><a href="tel:+79783111101">+7 (978) 311-11-01</a></dd>
+          </div>
+          <div class="footer-contact-row">
+            <dt>Режим работы</dt>
+            <dd>Ежедневно, 10:00–20:00</dd>
+          </div>
+          <div class="footer-contact-row">
+            <dt>Эл. почта</dt>
+            <dd><a href="mailto:info@ersavage.ru">info@ersavage.ru</a></dd>
+          </div>
+        </dl>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span class="footer-legal-item">ИП Савченко Е. В.</span>
+        <a href="#" class="footer-legal-item footer-legal-link">Пользовательское соглашение</a>
+        <a href="#" class="footer-legal-item footer-legal-link">Политика конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    /* ---- Catalog page interactions ---- */
+    (function () {
+
+      /* Wishlist toggle */
+      document.querySelectorAll('.na-wish').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var active = this.classList.toggle('is-active');
+          this.setAttribute('aria-label', active ? 'Убрать из избранного' : 'Добавить в избранное');
+        });
+      });
+
+      /* Filter group accordion */
+      document.querySelectorAll('.catalog-filter-group-toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!expanded));
+          var bodyId = this.getAttribute('aria-controls');
+          var body = document.getElementById(bodyId);
+          if (body) {
+            if (expanded) {
+              body.setAttribute('hidden', '');
+            } else {
+              body.removeAttribute('hidden');
+            }
+          }
+        });
+      });
+
+      /* Size filter buttons */
+      document.querySelectorAll('.catalog-size-btn[data-size]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          this.classList.toggle('is-active');
+        });
+      });
+
+      /* Color swatch toggle */
+      document.querySelectorAll('.catalog-color-swatch').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          this.classList.toggle('is-active');
+        });
+      });
+
+      /* Subcategory tabs */
+      document.querySelectorAll('[data-subcat]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('[data-subcat]').forEach(function (b) {
+            b.classList.remove('is-active');
+          });
+          this.classList.add('is-active');
+        });
+      });
+
+      /* Mobile sidebar toggle */
+      var filterToggle = document.getElementById('catalogFilterToggle');
+      var sidebar = document.getElementById('catalogSidebar');
+      var sidebarClose = document.getElementById('catalogSidebarClose');
+
+      if (filterToggle && sidebar) {
+        filterToggle.addEventListener('click', function () {
+          var open = sidebar.classList.toggle('is-open');
+          filterToggle.setAttribute('aria-expanded', String(open));
+          filterToggle.classList.toggle('is-active', open);
+          document.body.style.overflow = open ? 'hidden' : '';
+        });
+      }
+
+      if (sidebarClose && sidebar) {
+        sidebarClose.addEventListener('click', function () {
+          sidebar.classList.remove('is-open');
+          if (filterToggle) {
+            filterToggle.setAttribute('aria-expanded', 'false');
+            filterToggle.classList.remove('is-active');
+          }
+          document.body.style.overflow = '';
+        });
+      }
+
+      /* Close sidebar when clicking the backdrop (the sidebar element itself on mobile) */
+      if (sidebar) {
+        sidebar.addEventListener('click', function (e) {
+          if (e.target === sidebar) {
+            sidebar.classList.remove('is-open');
+            if (filterToggle) {
+              filterToggle.setAttribute('aria-expanded', 'false');
+              filterToggle.classList.remove('is-active');
+            }
+            document.body.style.overflow = '';
+          }
+        });
+      }
+
+      /* Escape key closes sidebar */
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && sidebar && sidebar.classList.contains('is-open')) {
+          sidebar.classList.remove('is-open');
+          if (filterToggle) {
+            filterToggle.setAttribute('aria-expanded', 'false');
+            filterToggle.classList.remove('is-active');
+            filterToggle.focus();
+          }
+          document.body.style.overflow = '';
+        }
+      });
+
+      /* Reset filters */
+      var resetBtn = document.getElementById('catalogResetFilters');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function () {
+          document.querySelectorAll('.catalog-filter-group-body input[type="checkbox"]').forEach(function (cb) {
+            cb.checked = false;
+          });
+          document.querySelectorAll('.catalog-size-btn[data-size]').forEach(function (btn) {
+            btn.classList.remove('is-active');
+          });
+          document.querySelectorAll('.catalog-color-swatch').forEach(function (sw) {
+            sw.classList.remove('is-active');
+          });
+          var priceFrom = document.getElementById('priceFrom');
+          var priceTo = document.getElementById('priceTo');
+          if (priceFrom) priceFrom.value = '0';
+          if (priceTo) priceTo.value = '150000';
+          document.getElementById('catalogActiveTags').innerHTML = '';
+        });
+      }
+
+      /* "Add to cart" button feedback */
+      document.querySelectorAll('.na-cart-btn-overlay').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var orig = btn.textContent;
+          btn.textContent = '✓ Добавлено';
+          btn.style.background = 'var(--espresso, #3b2b24)';
+          setTimeout(function () {
+            btn.textContent = orig;
+            btn.style.background = '';
+          }, 1800);
+        });
+      });
+
+    }());
+  </script>
+</body>
+</html>
