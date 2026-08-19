@@ -226,112 +226,45 @@ if (!prefersReducedMotion) {
   revealElements.forEach((el) => revealObserver.observe(el));
 }
 
-// ——— Новые поступления — слайдер ———
 (() => {
-  const slider = document.querySelector("[data-na-slider]");
-  if (!slider) return;
+  const footer = document.getElementById("footer");
+  if (!footer) return;
 
-  const track = document.getElementById("naTrack");
-  const allCards = [...slider.querySelectorAll(".na-card")];
-  const prevBtn = document.getElementById("naPrev");
-  const nextBtn = document.getElementById("naNext");
-  const overlayPrevBtn = document.getElementById("naOverlayPrev");
-  const overlayNextBtn = document.getElementById("naOverlayNext");
-  const dotsContainer = document.getElementById("naDots");
-  const tabs = [...document.querySelectorAll(".na-tab")];
+  if (prefersReducedMotion) {
+    footer.classList.add("is-inview");
+    return;
+  }
 
-  if (!track || !allCards.length) return;
-
-  let currentIndex = 0;
-  let visibleCards = [...allCards];
-
-  const getPerPage = () => {
-    if (window.innerWidth >= 1024) return 4;
-    if (window.innerWidth >= 640) return 2;
-    return 1;
-  };
-
-  const resizeCards = () => {
-    const perPage = getPerPage();
-    const sliderWidth = slider.offsetWidth;
-    const gap = 18;
-    const cardWidth = (sliderWidth - gap * (perPage - 1)) / perPage;
-    allCards.forEach((card) => {
-      card.style.width = `${cardWidth}px`;
-      card.style.flexBasis = `${cardWidth}px`;
-    });
-  };
-
-  const buildDots = () => {
-    dotsContainer.innerHTML = "";
-    const perPage = getPerPage();
-    const total = visibleCards.length;
-    const maxIndex = Math.max(0, total - perPage);
-    for (let i = 0; i <= maxIndex; i++) {
-      const dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "na-dot" + (i === currentIndex ? " is-active" : "");
-      dot.setAttribute("role", "tab");
-      dot.setAttribute("aria-label", `Слайд ${i + 1}`);
-      dot.setAttribute("aria-selected", String(i === currentIndex));
-      dot.addEventListener("click", () => {
-        currentIndex = i;
-        update();
+  const footerObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          footer.classList.add("is-inview");
+          observer.unobserve(footer);
+        }
       });
-      dotsContainer.appendChild(dot);
-    }
-  };
+    },
+    { threshold: 0.18 }
+  );
 
-  const update = () => {
-    const perPage = getPerPage();
-    const total = visibleCards.length;
-    const maxIndex = Math.max(0, total - perPage);
-    currentIndex = Math.min(Math.max(0, currentIndex), maxIndex);
+  footerObserver.observe(footer);
+})();
 
-    const cardWidth = visibleCards[0] ? visibleCards[0].offsetWidth : 0;
-    const gap = 18;
-    const offset = currentIndex * (cardWidth + gap);
-    track.style.transform = `translateX(-${offset}px)`;
+// ——— Новые поступления — сетка + фильтры ———
+(() => {
+  const grid = document.querySelector("[data-na-grid]");
+  if (!grid) return;
 
-    if (prevBtn) prevBtn.disabled = currentIndex === 0;
-    if (nextBtn) nextBtn.disabled = currentIndex >= maxIndex;
-    if (overlayPrevBtn) overlayPrevBtn.disabled = currentIndex === 0;
-    if (overlayNextBtn) overlayNextBtn.disabled = currentIndex >= maxIndex;
-
-    [...dotsContainer.querySelectorAll(".na-dot")].forEach((dot, i) => {
-      dot.classList.toggle("is-active", i === currentIndex);
-      dot.setAttribute("aria-selected", String(i === currentIndex));
-    });
-  };
+  const cards = [...grid.querySelectorAll(".na-card")];
+  const tabs = [...document.querySelectorAll(".na-tab")];
+  if (!cards.length) return;
 
   const filterCards = (category) => {
-    currentIndex = 0;
-    allCards.forEach((card) => {
+    cards.forEach((card) => {
       const match = category === "all" || card.dataset.naCategory === category;
-      card.style.display = match ? "" : "none";
+      card.classList.toggle("is-hidden", !match);
     });
-    visibleCards = allCards.filter((c) => c.style.display !== "none");
-    resizeCards();
-    buildDots();
-    update();
   };
-
-  const goPrev = () => {
-    currentIndex = Math.max(0, currentIndex - 1);
-    update();
-  };
-
-  const goNext = () => {
-    const perPage = getPerPage();
-    const maxIndex = Math.max(0, visibleCards.length - perPage);
-    currentIndex = Math.min(currentIndex + 1, maxIndex);
-    update();
-  };
-
-  prevBtn?.addEventListener("click", goPrev);
-  nextBtn?.addEventListener("click", goNext);
-  overlayPrevBtn?.addEventListener("click", goPrev);
-  overlayNextBtn?.addEventListener("click", goNext);
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
@@ -345,25 +278,11 @@ if (!prefersReducedMotion) {
     });
   });
 
-  let resizeTimer;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      resizeCards();
-      buildDots();
-      update();
-    }, 120);
-  });
-
-  slider.querySelectorAll(".na-wish").forEach((btn) => {
+  grid.querySelectorAll(".na-wish").forEach((btn) => {
     btn.addEventListener("click", () => {
       btn.classList.toggle("is-active");
     });
   });
-
-  resizeCards();
-  buildDots();
-  update();
 })();
 
 // ——— Магазины — переключение вкладок городов ———
@@ -483,7 +402,124 @@ if (!prefersReducedMotion) {
   setCity(saved || DEFAULT_CITY);
 })();
 
-// ——— Рекомендации — избранное ———
-document.querySelectorAll(".recs-wish").forEach((btn) => {
-  btn.addEventListener("click", () => btn.classList.toggle("is-active"));
-});
+// ——— Lookbook — слайдер и аккордеон подборок ———
+(() => {
+  const section = document.getElementById("lookbook");
+  const slider = section?.querySelector("[data-lookbook-slider]");
+  const viewport = slider?.querySelector("[data-lookbook-viewport]");
+  const track = slider?.querySelector("[data-lookbook-track]");
+  const grid = slider?.querySelector("[data-lookbook-grid]");
+  const prevBtn = section?.querySelector("[data-lookbook-prev]");
+  const nextBtn = section?.querySelector("[data-lookbook-next]");
+  if (!section || !slider || !viewport || !track || !grid || !prevBtn || !nextBtn) return;
+
+  const cards = [...grid.querySelectorAll(".lookbook-card")];
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const gap = 10;
+  let currentIndex = 0;
+
+  const getVisibleCount = () => {
+    if (window.innerWidth <= 540) return 1;
+    if (window.innerWidth <= 860) return 2;
+    return 5;
+  };
+
+  const getWidths = () => {
+    const visible = getVisibleCount();
+    const viewportWidth = viewport.offsetWidth;
+    const gaps = gap * (visible - 1);
+    const activeRatio = 1.38;
+    const cardWidth = Math.max(140, (viewportWidth - gaps) / (visible - 1 + activeRatio));
+    const activeWidth = cardWidth * activeRatio;
+    return { cardWidth, activeWidth, visible, viewportWidth };
+  };
+
+  const getCardWidth = (card, cardWidth, activeWidth) =>
+    card.classList.contains("is-active") ? activeWidth : cardWidth;
+
+  const getOffsetForIndex = (index, cardWidth, activeWidth) => {
+    let offset = 0;
+    for (let i = 0; i < index; i += 1) {
+      offset += getCardWidth(cards[i], cardWidth, activeWidth) + gap;
+    }
+    return offset;
+  };
+
+  const setActive = (card) => {
+    if (!card) return;
+    cards.forEach((item) => {
+      const active = item === card;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-expanded", active ? "true" : "false");
+    });
+  };
+
+  const layout = () => {
+    const { cardWidth, activeWidth, visible, viewportWidth } = getWidths();
+    if (!viewportWidth) return;
+
+    cards.forEach((card) => {
+      card.style.setProperty("--lookbook-card-w", `${cardWidth}px`);
+      card.style.setProperty("--lookbook-card-w-active", `${activeWidth}px`);
+    });
+
+    const maxIndex = Math.max(0, cards.length - visible);
+    currentIndex = Math.min(Math.max(0, currentIndex), maxIndex);
+
+    const offset = getOffsetForIndex(currentIndex, cardWidth, activeWidth);
+    track.style.transform = `translate3d(-${offset}px, 0, 0)`;
+
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex >= maxIndex;
+  };
+
+  const goPrev = () => {
+    currentIndex = Math.max(0, currentIndex - 1);
+    setActive(cards[currentIndex]);
+    layout();
+  };
+
+  const goNext = () => {
+    const maxIndex = Math.max(0, cards.length - getVisibleCount());
+    currentIndex = Math.min(currentIndex + 1, maxIndex);
+    setActive(cards[currentIndex]);
+    layout();
+  };
+
+  prevBtn.addEventListener("click", goPrev);
+  nextBtn.addEventListener("click", goNext);
+  window.addEventListener("resize", layout);
+
+  setActive(cards.find((card) => card.classList.contains("is-active")) || cards[0]);
+  currentIndex = 0;
+
+  if (canHover) {
+    cards.forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        setActive(card);
+        layout();
+      });
+      card.addEventListener("focus", () => {
+        setActive(card);
+        layout();
+      });
+    });
+    grid.addEventListener("mouseleave", () => {
+      setActive(cards[currentIndex] || cards[0]);
+      layout();
+    });
+  } else {
+    cards.forEach((card) => {
+      card.addEventListener("click", (event) => {
+        if (!card.classList.contains("is-active")) {
+          event.preventDefault();
+          setActive(card);
+          layout();
+        }
+      });
+    });
+  }
+
+  layout();
+  window.addEventListener("load", layout);
+})();
